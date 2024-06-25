@@ -1,0 +1,3 @@
+
+I have begun practicing the "Top Interview 150" challenge on LeetCode to improve my coding skills and prepare for technical interviews.
+This challenge consists of 150 problems that are frequently asked in interviews, covering various topics and difficulty levels, which will help me become more proficient in problem-solving and algorithm design.
