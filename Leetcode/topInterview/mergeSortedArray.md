@@ -1,7 +1,8 @@
-solved leetcode 88th problem
+### 88. Merge Sorted Array
+##### [https://leetcode.com/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150]
 
-...c...
-
+## c
+```c
 void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n)
 {
     int i = m - 1; 
@@ -24,8 +25,9 @@ void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n)
         nums1[k--] = nums2[j--];
     }
 }
-
-...java...
+```
+## java
+```java
 
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
@@ -46,3 +48,4 @@ class Solution {
         
     }
 }
+```
