@@ -1,22 +1,20 @@
-solved leetcode 27th problem
-
-...c...
-
+### 27.Remove Element
+##### [https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&envId=top-interview-150]
+## c
+```c
 int removeElement(int* nums, int numsSize, int val) {
     int count=0;int k=0;
     for(int i=0;i<numsSize;i++){
         if(nums[i]!=val){
             nums[k++]=nums[i];
             count++;
-
         }
     }
     return count;
-    
 }
-
-...cpp...
-
+```
+## cpp
+```cpp
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
@@ -32,9 +30,9 @@ public:
         return k;
     }
 };
-
-...java...
-
+```
+## java
+```java
 class Solution {
     public int removeElement(int[] nums, int val) {
          int count=0;int k=0;
@@ -42,10 +40,9 @@ class Solution {
         if(nums[i]!=val){
             nums[k++]=nums[i];
             count++;
-
         }
     }
-    return count;
-    
+    return count;    
 }   
 }
+```
