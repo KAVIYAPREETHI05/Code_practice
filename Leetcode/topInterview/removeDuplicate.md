@@ -1,5 +1,7 @@
-solved 26 problem in leeetcode
-...C...
+### 26. Remove Duplicates from Sorted Array
+##### [https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150]
+## c
+```C
 
 int removeDuplicates(int* arr, int numsSize) {
     if(numsSize==0){
@@ -13,10 +15,10 @@ int removeDuplicates(int* arr, int numsSize) {
     }
     arr[j++]=arr[numsSize-1];
     return j;
-    
-}
-
-...cpp...
+   }
+```
+## cpp
+```cpp
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
@@ -30,15 +32,13 @@ public:
                 nums[k] = nums[i]; // Overwrite the next unique element
                 k++;
             }
-        }
-        
+        }        
         return k;
     }
 };
-
-
-...java...
-
+```
+## java
+```java
 class Solution {
     public int removeDuplicates(int[] nums) {
         if(nums.length==0){
@@ -50,8 +50,7 @@ class Solution {
             }
         }
 nums[k++]=nums[nums.length-1];
-return k;
-        
-        
+return k;        
     }
 }
+```
