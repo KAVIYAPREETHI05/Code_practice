@@ -1,5 +1,6 @@
-###
-##cpp
+### Union of two arrays
+##### [https://www.geeksforgeeks.org/problems/union-of-two-arrays3538/1]
+## cpp
 ```cpp
 class Solution {
   public:
