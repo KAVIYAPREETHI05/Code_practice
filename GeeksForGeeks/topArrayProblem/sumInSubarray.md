@@ -1,4 +1,5 @@
 ### Indexes of Subarray Sum
+##### [https://www.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1]
 ## c
 ```c
 void subarraySum(int arr[], int n, long long s, int result[]) {
