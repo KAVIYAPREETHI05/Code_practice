@@ -34,3 +34,36 @@ int main(){
     }
 }
 ```
+## cpp
+```cpp
+class Solution {
+public:
+    vector<int> separateDigits(vector<int>& arr) {
+        int n=arr.size();
+        vector<int>brr;
+    for(int i=0;i<n;i++){
+        int num=arr[i];
+        if(num==0){
+            brr.push_back(0);
+        }
+        else if(num<0){
+            num=-num;
+        }
+        int digits[10];
+        int digitcount=0;
+        while(num!=0){
+            int digit=num%10;
+            digits[digitcount++]=digit;
+            num/=10;
+        }
+        for(int i=digitcount-1;i>=0;i--){
+            brr.push_back(digits[i]);
+        }
+    }
+  return brr;  
+    }
+};
+```
+### java
+```java
+
