@@ -1,5 +1,5 @@
 ### array Duplicates
-##### [https://www.geeksforgeeks.org/problems/find-duplicates-in-an-array/1]
+##### [https://www.geeksforgeeks.org/problems/find-duplicates-in-an-array/1] 
 ### cpp
 ```cpp
 class Solution {
