@@ -45,7 +45,6 @@ public:
         int pos_size = 0;
         int neg_size = 0;
 
-        // Separate positive and negative numbers
         for (int i = 0; i < n; i++) {
             if (arr[i] >= 0) {
                 positive[pos_size++] = arr[i];
@@ -58,18 +57,15 @@ public:
         int neg_index = 0;
         int index=0;
 
-        // Interleave positive and negative numbers
         while (pos_index < pos_size && neg_index < neg_size) {
             arr[index++]= positive[pos_index++] ;
             arr[index++]=negative[neg_index++] ;
         }
 
-        // Print remaining positives, if any
         while (pos_index < pos_size) {
             arr[index++]=  positive[pos_index++];
         }
 
-        // Print remaining negatives, if any
         while (neg_index < neg_size) {
             arr[index++]= negative[neg_index++];
         }
@@ -89,7 +85,6 @@ class Solution {
         int pos_size = 0;
         int neg_size = 0;
 
-        // Separate positive and negative numbers
         for (int i = 0; i < n; i++) {
             if (arr[i] >= 0) {
                 positive[pos_size++] = arr[i];
@@ -102,18 +97,15 @@ class Solution {
         int neg_index = 0;
         int index=0;
 
-        // Interleave positive and negative numbers
         while (pos_index < pos_size && neg_index < neg_size) {
             arr[index++]= positive[pos_index++] ;
             arr[index++]=negative[neg_index++] ;
         }
 
-        // Print remaining positives, if any
         while (pos_index < pos_size) {
             arr[index++]=  positive[pos_index++];
         }
 
-        // Print remaining negatives, if any
         while (neg_index < neg_size) {
             arr[index++]= negative[neg_index++];
         }
