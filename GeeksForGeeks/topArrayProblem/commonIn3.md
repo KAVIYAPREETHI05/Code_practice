@@ -1,4 +1,5 @@
 ### Common in 3 Sorted Arrays
+##### [https://www.geeksforgeeks.org/problems/common-elements1132/1]
 
 ```c
 #include <stdio.h>
