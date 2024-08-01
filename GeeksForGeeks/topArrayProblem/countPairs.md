@@ -1,4 +1,5 @@
 ### count pairs with given sum
+### c
 ```c
 #include <stdio.h>
 
