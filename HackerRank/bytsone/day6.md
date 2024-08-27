@@ -326,3 +326,132 @@ class Printer
  
 }
 ```
+
+### java sort
+```java
+import java.util.*;
+
+// Define the Student class
+class Student {
+    private int id;
+    private String fname;
+    private double cgpa;
+
+    public Student(int id, String fname, double cgpa) {
+        this.id = id;
+        this.fname = fname;
+        this.cgpa = cgpa;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public double getCgpa() {
+        return cgpa;
+    }
+
+    // Override toString() to print the name of the student
+    @Override
+    public String toString() {
+        return fname;
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int testCases = Integer.parseInt(in.nextLine());
+
+        List<Student> studentList = new ArrayList<>();
+
+        while (testCases > 0) {
+            int id = in.nextInt();
+            String fname = in.next();
+            double cgpa = in.nextDouble();
+
+            Student st = new Student(id, fname, cgpa);
+            studentList.add(st);
+
+            testCases--;
+        }
+
+        // Sort the list of students
+        Collections.sort(studentList, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                if (Double.compare(s2.getCgpa(), s1.getCgpa()) != 0) {
+                    // Sort by CGPA descending
+                    return Double.compare(s2.getCgpa(), s1.getCgpa());
+                } else if (!s1.getFname().equals(s2.getFname())) {
+                    // Sort by name ascending
+                    return s1.getFname().compareTo(s2.getFname());
+                } else {
+                    // Sort by ID ascending
+                    return Integer.compare(s1.getId(), s2.getId());
+                }
+            }
+        });
+
+        // Print the names of the students in the sorted order
+        for (Student st : studentList) {
+            System.out.println(st.getFname());
+        }
+
+        in.close();
+    }
+}
+```
+### java dequeue
+```java
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int m = in.nextInt();
+        
+        // Initialize data structures
+        Deque<Integer> deque = new ArrayDeque<>();
+        Set<Integer> uniqueElements = new HashSet<>();
+        int maxUnique = 0;
+        
+        // Read the input array
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) {
+            array[i] = in.nextInt();
+        }
+        
+        // Process the array with a sliding window approach
+        for (int i = 0; i < n; i++) {
+            // Add the current element to the deque and set
+            deque.add(array[i]);
+            uniqueElements.add(array[i]);
+            
+            // Remove the element that's out of the current window
+            if (deque.size() > m) {
+                int removed = deque.removeFirst();
+                if (!deque.contains(removed)) {
+                    uniqueElements.remove(removed);
+                }
+            }
+            
+            // Update max unique count if the current window size is m
+            if (deque.size() == m) {
+                maxUnique = Math.max(maxUnique, uniqueElements.size());
+            }
+        }
+        
+        // Print the maximum number of unique integers in any window of size m
+        System.out.println(maxUnique);
+        
+        in.close();
+    }
+}
+
+```
