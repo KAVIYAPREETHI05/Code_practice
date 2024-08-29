@@ -92,4 +92,67 @@ public class Solution {
     }
 }
 ```
-###
+### Java Loops II
+```java
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int q=scan.nextInt();
+        for(int i=0;i<q;i++){
+            int a=scan.nextInt();
+            int b=scan.nextInt();
+            int n=scan.nextInt();
+            int curr=a;
+            for(int j=0;j<n;j++){
+                curr+=(Math.pow(2,j))*b;
+                System.out.print(curr+" ");
+            }
+            System.out.println("");
+        }
+        
+        
+        
+    }
+}
+```
+### Java Datatypes
+```java
+import java.io.*;
+import java.util.*;
+import java.math.BigInteger;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int T = scan.nextInt();
+        while (T-- > 0) {
+            String input = scan.next(); 
+            try {
+           
+                long n = Long.parseLong(input);
+                System.out.println(n + " can be fitted in:");
+                if (n>=(Short.MIN_VALUE)&& n<=(Short.MAX_VALUE)) {
+                    System.out.println("* short");
+                }
+                if (n>=(Integer.MIN_VALUE)&& n<=(Integer.MAX_VALUE)) {
+                    System.out.println("* int");
+                }
+                if (n>=(Long.MIN_VALUE)&& n<=(Long.MAX_VALUE)) {
+                    System.out.println("* long");
+                }
+                
+            } catch (NumberFormatException e) {
+                // Use the stored input directly, no need to call scan.next() again
+                System.out.println(input + " can't be fitted anywhere.");
+            }
+        }
+        scan.close();
+    }
+}
+
+```
