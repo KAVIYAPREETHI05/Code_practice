@@ -156,3 +156,70 @@ public class Solution {
 }
 
 ```
+### Java End-of-file
+```java
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+           int line=1;
+        while(scan.hasNextLine()){
+         
+            String input=scan.nextLine();
+            if(input.equals("EOF")){
+                break;
+            }
+           
+            System.out.println(line +" "+input);
+            line++;
+        }
+        scan.close();
+    }
+}
+```
+### Java Static Initializer Block
+```java
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int B=scan.nextInt();
+        int H=scan.nextInt();
+        if(B<=0 || H<=0){
+            System.out.println("java.lang.Exception: Breadth and height must be positive");
+            
+        }
+        else{
+            System.out.println(B*H);
+        }
+        
+    }
+}
+```
+### Java Int to String
+```java
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        String s=Integer.toString(n);
+        if(s.equals(Integer.toString(n))){
+            System.out.println("Good job");
+        }
+        else{
+            System.out.println("Wrong answer");
+        }
+    }
+}
+```
