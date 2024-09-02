@@ -47,5 +47,5 @@ class Codechef
 
 	}
 }
-
+//https://www.codechef.com/practice/course/arrays/ARRAYS/problems/SEARCHINARR
 ```
