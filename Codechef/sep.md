@@ -1,3 +1,4 @@
+## Day-1
 ### Clear Day
 ```cpp
 #include <stdio.h>
@@ -11,4 +12,40 @@ int main(void) {
 	// your code goes here
 
 }
+```
+## Day-2
+### Search an element in an array
+```java
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scan=new Scanner(System.in);
+		int n=scan.nextInt();
+		int target=scan.nextInt();
+		int arr[]=new int[n];
+		for(int i=0;i<n;i++){
+		    arr[i]=scan.nextInt();
+		}
+		int found=0;
+		for(int i=0;i<n;i++){
+		    if(arr[i]==target){
+		        found=1;
+		        System.out.println("YES");
+		        break;
+		    }
+		    
+		}
+		if(found==0){
+		    System.out.println("NO");
+		}
+		
+
+	}
+}
+
 ```
