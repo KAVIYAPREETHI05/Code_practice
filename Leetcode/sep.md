@@ -42,3 +42,27 @@ class Solution {
     }
 }
 ```
+## Day-3
+### Sum of Digits of String After Convert
+```java
+class Solution {
+    public int getLucky(String s, int k) {
+       StringBuilder numString=new StringBuilder();
+       for(char c:s.toCharArray()){
+        int number=c-'a'+1;
+        numString.append(number);
+       }
+       String currentString=numString.toString();
+       int result=0;
+       for(int i=0;i<k;i++){
+        result=0;
+        for(char digit:currentString.toCharArray()){
+            result+=digit-'0';
+        }
+        currentString=Integer.toString(result);
+       }
+       return result;
+    }
+}
+```
+
