@@ -85,3 +85,104 @@ class Codechef
 }
 
 ```
+## Day-4
+### Take discount or Not
+```java
+import java.util.Scanner;
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+
+
+        // Read the number of test cases
+
+        int t = scanner.nextInt();
+
+
+
+        // Process each test case
+
+        while (t-- > 0) {
+
+            int N = scanner.nextInt();  // Number of items
+
+            int X = scanner.nextInt();  // Cost of the coupon
+
+            int Y = scanner.nextInt();  // Discount amount
+
+            
+
+            int[] prices = new int[N];
+
+            
+
+            // Read item prices
+
+            for (int i = 0; i < N; i++) {
+
+                prices[i] = scanner.nextInt();
+
+            }
+
+
+
+            // Calculate the total cost without the coupon
+
+            int totalWithoutCoupon = 0;
+
+            for (int price : prices) {
+
+                totalWithoutCoupon += price;
+
+            }
+
+
+
+            // Calculate the total cost with the coupon
+
+            int totalWithCoupon = X;  // Initial cost is the coupon price
+
+            for (int price : prices) {
+
+                if (price > Y) {
+
+                    totalWithCoupon += (price - Y);
+
+                }
+
+                // If price <= Y, the item becomes free, so no need to add anything
+
+            }
+
+
+
+            // Determine if Chef should buy the coupon
+
+            if (totalWithCoupon < totalWithoutCoupon) {
+
+                System.out.println("COUPON");
+
+            } else {
+
+                System.out.println("NO COUPON");
+
+            }
+
+        }
+
+
+
+        scanner.close();  // Close the scanner
+
+    }
+
+}
+
+
+```
