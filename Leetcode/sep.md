@@ -1,4 +1,4 @@
-## Day-1
+
 ### 2022. Convert 1D Array Into 2D Array
 ```java
 class Solution {
@@ -17,7 +17,7 @@ class Solution {
     }
 }
 ```
-## Day-2
+
 ### 1894. Find the Student that Will Replace the Chalk
 ```java
 class Solution {
@@ -42,7 +42,7 @@ class Solution {
     }
 }
 ```
-## Day-3
+
 ### Sum of Digits of String After Convert
 ```java
 class Solution {
@@ -65,7 +65,7 @@ class Solution {
     }
 }
 ```
-## Day-5
+
 ### 2028. Find Missing Observations
 ```java
 class Solution {
@@ -105,5 +105,35 @@ class Solution {
 
     public static void main(String[] args) {
         Solution sol = new Solution();}}
+```
+### 179. Largest Number
+
+```java
+class Solution {
+    public String largestNumber(int[] nums) {
+        String []str=new String[nums.length];
+        for(int i=0;i<nums.length;i++){
+            str[i]=String.valueOf(nums[i]);
+        }
+        Arrays.sort(str,new Comparator<String>(){
+            public int compare(String a,String b){
+                String order1=a+b;
+                String order2=b+a;
+                return order2.compareTo(order1);
+            }
+        });
+        if(str[0].equals("0")){
+            return "0";
+        }
+        StringBuilder largestnumber=new StringBuilder();
+        for(int i=0;i<str.length;i++){
+            largestnumber.append(str[i]);
+        }
+        return largestnumber.toString();
+        
+        
+    }
+
+}
 ```
 
