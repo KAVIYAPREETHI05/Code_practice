@@ -45,17 +45,25 @@ Basics building blocks of a Computer network are **Nodes** and **Links**.
 
 **Peer-to-Peer Architecture:** In P2P (Peer-to-Peer) Architecture, there is not any concept of a Central Server. Each device is free for working as either client or server.
 
+### Basic types of computer network
+
+- LAN (Local Area Network)
+- MAN (Metropolitan Area Network)
+- WAN (Wide Area Network)
+- PAN (Personal Area Network)
+- VPN (Virtual Private Network)
+
 ### unique identifiers
 
-hostname- DESKTOP-4M4EJKJ
+``hostname``  DESKTOP-4M4EJKJ
 
-ipconfig-  
+``ipconfig``
 
 IPv4 Address: 192.168.237.124 - 32 bits
 
 IPv6 Address: 2401:4900:6335:2656:12ce:3cfc:e734:a3a4 -128 bits
            
-netstat -a -port  - 16 bits
+``netstat -a -port``    16 bits
 
   TCP    0.0.0.0:49670          DESKTOP-4M4EJKJ:0      LISTENING 
   
@@ -75,11 +83,99 @@ netstat -a -port  - 16 bits
   
   TCP    172.20.192.1:139       DESKTOP-4M4EJKJ:0      LISTENING
   
-**types of ports**
+**Types of ports**
 
 well known ports - 0 to 1023
 
 registered ports - 1024 to 49151
 
 ephemeral ports - 49152 to 65535
+
+**Network criteria**
+
+Transit time is the time for a message to travel from one device to another.
+
+Response time is the elapsed time between an inquiry and a response. 
+
+- performance
+
+          --->The number of users 
+
+          --->Type of transmission medium 
+
+          --->Capability of connected network
+  
+          --->Efficiency of software
+  
+          --->Bandwidth
+  
+          --->Network topology
+  
+          --->Network protocols
+  
+          --->Distance
+  
+          --->Network congestion
+  
+          --->Network hardware
+
+- Reliability
+    
+          --->Frequency of failure
+    
+          --->Recovery from failures
+    
+          --->Robustness during catastrophe 
+
+          --->Quality of service (QoS)
+
+          --->Reducing single points of failure
+
+          --->Capacity planning
+
+          --->Network architecture
+
+- Security
+
+- Network topology
+
+**Goals of Computer Networks:**
+
+- Resource sharing
+- High reliability
+- Inter process communication
+- Flexible access
+- Security
+- Performance
+- Scalability
+
+**Advantages**
+
+- Resource sharing
+- communication and collaboration
+- Centralized management
+- Scalibility
+- Accessibility
+
+**Disadvantages**
+
+- Security vulnerabilities
+- Complexity
+- Dependance on infrastructure
+- Cost
+- Performance limitations
+
+**Common Challenges of Computer Network**
+
+          ---> Performance Degradation
+          ---> Security Issues 
+          ---> Host Identification
+          ---> Configuration Conflicts
+          ---> Capacity concern
+          ---> Slow connectivity
+          ---> Monitoring and maintenance
+
+
+
+
 
