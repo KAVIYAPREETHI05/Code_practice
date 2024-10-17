@@ -18,6 +18,8 @@ CREATE TABLE Employees (
     LastName VARCHAR(50),
     Age INT,
     HireDate DATE
+    salary DECIMAL(10,2); -- DECIMAL (Fixed-Point Precision)
+    price DOUBLE; -- (Floating-Point Precision)
 );
 
 ```
@@ -29,9 +31,50 @@ Used to modify the structure of an existing database object (e.g., adding or dro
 ALTER TABLE Employees
 ADD Email VARCHAR(100);
 ```
+
 ```sql
 ALTER TABLE Employees
 DROP COLUMN Email;
+```
+
+```sql
+ALTER TABLE Customers
+RENAME COLUMN 'phone' TO 'phoneNumber';
+```
+
+```sql
+ALTER TABLE Customers
+MODIFY phoneNumber VARCHAR(15);
+```
+
+``sql
+ALTER TABLE Customers
+DROP COLUMN phoneNumber;
+```
+
+```sql
+ALTER TABLE Customers
+ADD CONSTRAINT age PRIMARY KEY(int);
+```
+
+```sql
+ALTER TABLE orders
+DROP PRIMARY KEY;
+```
+
+```sql
+ALTER TABLE orders
+ADD CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES customers(id);
+```
+
+```sql
+ALTER TABLE orders
+DROP FOREIGN KEY fk_customer_id;
+```
+
+```sql
+ALTER TABLE Customers
+CHANGE age customerAge int;
 ```
 ### DROP 
 
