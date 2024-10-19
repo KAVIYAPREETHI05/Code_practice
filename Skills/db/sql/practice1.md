@@ -1,3 +1,4 @@
+## SELECT
 ### Arithmetic Operations in SQL
 ```sql
 SELECT 10,20,30;  --10 20 30
@@ -189,6 +190,92 @@ SELECT *
 FROM Orders
 WHERE amount=(SELECT MAX(amount) FROM Orders); -- maximum price
 ```
+## WHERE
+```sql
+SELECT *FROM Orders 
+WHERE amount>300;
+```
+
+```sql
+SELECT *FROM Orders 
+WHERE item LIKE 'M%';
+```
+```sql
+SELECT *FROM Orders 
+WHERE item LIKE '%a';
+```
+```sql
+SELECT * FROM employees WHERE email NOT LIKE '%@bitsathy.ac.in';
+```
+
+```sql
+SELECT *FROM Orders 
+WHERE amount BETWEEN 300 AND 1200;   -- 300 included but 1200 is not included
+```
+SELECT *FROM Shippings 
+WHERE shipping_id>3 AND customer>3;
+```
+
+```sql
+SELECT *FROM Orders 
+WHERE amount IS NOT NULL;
+```
+```SQL
+SELECT *FROM Orders 
+WHERE item IS NOT 'Monitor';
+```
+
+```sql
+SELECT *FROM Orders 
+WHERE item IN ('Keyboard','Monitor');
+```
+
+```sql
+SELECT * FROM Orders
+WHERE  date_ <'2005-02-19';
+```
+```sql
+SELECT * FROM Orders
+WHERE date_ BETWEEN NOW() - INTERVAL 1 MONTH AND NOW();  -- last one  month
+
+```
+
+## DISTINCT
+
+
+DISTINCT will treat NULL as a distinct value, so only one NULL will be returned even if there are multiple NULL values in the column.
+
+
+```sql
+SELECT DISTINCT * FROM Orders;
+```
+```sql
+SELECT DISTINCT amount FROM Orders;
+```
+```sql
+SELECT COUNT(DISTINCT amount) FROM Orders;
+```
+```sql
+SELECT SUM(DISTINCT amount) FROM Orders;
+
+```
+```sql
+SELECT DISTINCT City FROM Customers ORDER BY City ASC;
+
+```
+```sql
+SELECT DISTINCT amount FROM Orders WHERE date_ IS NOT NULL;
+```
+```sql
+SELECT DISTINCT YEAR(OrderDate) FROM Orders;
+```
+```sql
+SELECT DISTINCT Country FROM Customers GROUP BY Country;
+
+```
+
+
+
 
 
 
