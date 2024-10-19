@@ -212,6 +212,7 @@ SELECT * FROM employees WHERE email NOT LIKE '%@bitsathy.ac.in';
 SELECT *FROM Orders 
 WHERE amount BETWEEN 300 AND 1200;   -- 300 included but 1200 is not included
 ```
+```sql
 SELECT *FROM Shippings 
 WHERE shipping_id>3 AND customer>3;
 ```
