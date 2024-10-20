@@ -1221,11 +1221,1392 @@ System.out.println(new Questionl().x);
 
 }}
 ```
+ a. 1
+ 
+ b. 2
+ 
+ c. 0
+ 
+ d. Compilation Error
 
+**Answers:
+c. 0**
 
+4.Which exception is thrown when an array element is accessed beyond the array size?
+ 
+ a. ArrayElementOutOfBounds
+ 
+ b. ArrayIndexOutOfBoundsException
+ 
+ c. ArrayIndexOutOfBounds
+ 
+ d. None of these
 
+**Answers:
+b. ArrayIndexOutOfBoundsException**
 
+5.what is output?
+```java
+class Q {
 
+public void disp() { System.out.println("java");
+
+}
+
+}
+
+class P extends Q {
+
+public void disp() { System.out.println("nptel");
+
+}
+
+}
+
+class C extends P {
+
+public void disp() { super.super.disp(); System.out.println("course");
+
+}
+
+}
+
+public class Question {
+
+public static void main(String[] args) {
+
+Cc = new C();
+
+c.disp();
+
+}
+}
+```
+ a. java
+ 
+ b. java
+        course
+ 
+ c. nptel
+         course
+ 
+ d. Compilation Error
+
+Answers:
+d. Compilation Error
+
+6.Fill in the blank in the program so that the output is “Java”.
+```java
+interface X {
+
+void display();
+
+}
+
+class Y implements X {
+
+display() { System.out.println("Java");
+
+}
+
+//MISSING_CODE
+
+}
+
+public class MainClass {
+
+public static void main(String[] args) {
+
+Y r = new Y();
+
+r.display();
+
+}
+}
+```
+ a. public void
+ 
+ b. void
+ 
+ c. private void
+ 
+ d. static void
+
+**Answers:
+a. public void**
+
+7.How many times will “Java” be printed if the following code is executed?
+```java
+class X {
+
+static {
+
+Y.display();
+
+}
+
+}
+
+class Y extends X {
+
+static void display() { System.out.println("Java");
+
+}
+
+}
+
+public class MainClass {
+
+public static void main(String[] args) { Y.display();
+
+}
+
+}
+```
+ a. 0
+ 
+ b. 1
+ 
+ c. 2
+ 
+ d. 3
+
+**Answers:
+c. 2**
+
+8.The following is a simple program using the concept of thread. What is the output of the following program?
+```java
+public class Question extends Thread {
+
+public void run() {
+
+for (int i = 1; i < 8; i++) {
+
+System.out.print(++i + " ");
+
+}
+
+}
+
+public static void main(String args[]) { Question t1 = new Question();
+
+t1.run();
+
+}
+
+}
+```
+ a. 1 3 5 7
+ 
+ b. 2 4 6 8
+ 
+ c. 1 3 5 7 9
+ 
+ d. 2 4 6
+
+**Answers:
+b. 2 4 6 8**
+
+9.For the program given below, what will be the output after its execution?
+```java
+public class Main {
+
+public static void main(String[] args) {
+
+Thread thread = Thread.currentThread(); thread.run();
+
+System.out.print(Thread.activeCount());
+
+}
+
+}
+```
+ a. 1
+ 
+ b. 2
+ 
+ c. 0
+ 
+ d. 01
+
+**Answers:
+a. 1**
+
+10.Which of the following method returns a reference to the currently executing thread object?
+ 
+ a. public static boolean interrupted();
+ 
+ b. public static Thread currentThread();
+ 
+ c. public final boolean isAlive();
+ 
+ d. public final void suspend();
+
+**Answers:
+b. public static Thread currentThread();**
+
+# WEEK-7
+
+1.Which of these exception is thrown in cases when the file specified for writing is not found?
+ 
+ a. IOException
+ 
+ b. FileException
+ 
+ c. FileNotFoundException
+ 
+ d. FileInputException
+
+**Answers:
+c. FileNotFoundException**
+
+2.Which of these values is returned by read() method is end of file (EOF) is encountered?
+ 
+ a. 0
+ 
+ b. 1
+ 
+ c. -1
+ 
+ d. Null
+
+**Answers:
+c. -1**
+
+3.what is output?
+```java
+import java.io.*;
+
+class Chararrayinput {
+
+public static void main(String[] args) {
+
+String obj = "abcdef";
+
+int length = obj.length();
+
+char c[] = new char[length];
+
+obj.getChars(0, length, c, 0);
+
+CharArray Reader input1 = new CharArrayReader (c);
+
+CharArray Reader input2 = new CharArrayReader (c, 0, 3);
+
+int i;
+
+try {
+
+while ((1 = input2.read()) != -1) { System.out.print((char) i);
+
+}
+
+} catch (IOException e) {
+
+e.printStackTrace();
+
+}
+
+}
+```
+ a. abc
+ 
+ b. abcd
+ 
+ c. abcde
+ 
+ d. abcdef
+
+**Answers:
+a. abc**
+
+4.What is the purpose of a ByteArrayOutputStream in Java?
+ 
+ a. To write binary data to an output stream
+ 
+ b. To read binary data from an input stream
+ 
+ c. To convert characters to bytes
+ 
+ d. To store binary data in memory
+
+**Answers:
+d. To store binary data in memory**
+
+5.Which method is used to read b length bytes from the input stream into an array?
+ 
+ a. public void read(int b)throws IOException{{
+ 
+ b. public int read(byte[ ] b)throws IOException{}
+ 
+ c. public void read(byte[ ] b)throws IOException{}
+ 
+ d. public int read(int b)throws IOException{}
+
+**Answers:
+b. public int read(byte[ ] b)throws IOException{}**
+
+6.Which method is used to create a directory with fileattributes?
+ 
+ a. Path.create()
+ 
+ b. Path.createDirectory()
+ 
+ c. Files.createDirectory(path, fileAttributes)
+ 
+ d. Files.create(fileAttributes)
+
+**Answers:
+c. Files.createDirectory(path, fileAttributes)**
+
+7. what is output?
+```java
+public class Calculator { int num = 100;
+
+public void calc(int num) { this.num = num 10; }
+
+public void printNum() { System.out.println(num);
+
+}
+
+public static void main(String[] args) {
+
+Calculator obj = new Calculator();
+
+obj.calc(2);
+
+obj.printNum();
+
+}
+
+}
+```
+ a. 20
+ 
+ b. 100
+ 
+ c. 1000
+ 
+ d. 2
+
+**Answers:
+a. 20**
+
+8.Which class is used to write primitive data types to an output stream in Java?
+ 
+ a. DataOutputStream
+ 
+ b. ObjectOutputStream
+ 
+ c. OutputStream
+ 
+ d. PrintWriter
+
+**Answers:
+a. DataOutputStream**
+
+9.what is output?
+```java
+import java.io.*;
+
+public class W7 {
+
+public static void main(String[] args) {
+
+try {
+
+PrintWriter writer = new PrintWriter(System.out);
+
+writer.write(9 + 97);
+
+writer.close();
+
+} catch (Exception e) { System.out.println(e);
+
+}
+
+}
+
+}
+```
+ 
+ a. It will give compile-time error
+ 
+ b. It will give run-time error
+ 
+ c. j
+ 
+ d. 106
+
+**Answers:
+c. j**
+
+10.what is output?
+```java
+import java.io.File;
+
+class FileSizeEample {
+
+public static void main(String[] args) { // Specify the file path String filePath = "file.txt";
+
+// Create a File object File file = new File(filePath);
+
+// Get the size of the file long fileSize = file.length();
+
+// Print the size of the file System.out.println(fileSize);
+
+}
+
+}
+```
+ a. 42
+ 
+ b. 35
+ 
+ c. 7
+ 
+ d. 0
+
+**Answers:
+a. 42**
+
+# WEEK-8
+
+1.What does AWT stand for in Java?
+ 
+ a. Applet Windowing Toolkit
+ 
+ b. Abstract Window Toolkit
+ 
+ c. Absolute Windowing Toolkit
+ 
+ d. Amazing Window Toolkit
+
+**Answers:
+b. Abstract Window Toolkit**
+
+2.In Java, what is the purpose of a Card Layout?
+ 
+ a. To create a card game interface
+ 
+ b. To arrange components in a card-like fashion
+ 
+ c. To manage multiple panels within a single container
+ 
+ d. To display images of cards
+
+**Answers:
+c. To manage multiple panels within a single container**
+
+3.Which layout manager divides the container into five regions: North, South, East, West, and Center?
+ 
+ a. Border Layout
+ 
+ b. Grid Layout
+ 
+ c. Flow Layout
+ 
+ d. Card Layout
+
+**Answers:
+a. Border Layout**
+
+4.In Java, what is the primary purpose of a layout manager?
+ 
+ a. To manage memory allocation
+ 
+ b. To arrange GUI components within a container
+ 
+ c. To handle exception handling
+ 
+ d. To control database connections
+
+**Answers:
+b. To arrange GUI components within a container**
+
+5.what is output?
+```java
+import java.awt.*;
+
+import java.awt.event.*;
+
+public class ButtonExample extends Frame {
+
+public static void main(String[] args) {
+
+Button Example frame = new ButtonExample();
+
+Button b = new Button("Programming in Java - 2024");
+
+b.setBounds (30, 50, 80, 30);
+
+frame.add(b);
+
+frame.setSize (300, 200);
+
+frame.setLayout (null);
+
+frame.setVisible(true);
+
+}
+
+}
+```
+ 
+ a. Compilation error
+ 
+ b. An empty frame with no button
+ 
+ c. A frame with a button "Programming in Java - 2024" at coordinates (30, 50)
+ 
+**Answers:
+c. A frame with a button "Programming in Java - 2024" at coordinates (30, 50)**
+
+6.Which layout manager arranges components in a top-to-bottom flow, adding them to the next available position?
+ 
+ a. Grid Layout
+ 
+ b. Flow Layout
+ 
+ c. Border Layout
+ 
+ d. Card Layout
+
+**Answers:
+b. Flow Layout**
+
+7.What is the significance of AWT components being heavyweight?
+ 
+ a. They have higher memory requirements
+ 
+ b. They are slower in performance
+ 
+ c. They are dependent on the underlying operating system
+ 
+ d. They are easier to customize
+
+**Answers:
+c. They are dependent on the underlying operating system**
+
+8.Which AWT concept allows you to handle events such as button clicks or mouse movements?
+ 
+ a. Event Handling
+ 
+ b. Function Overloading
+ 
+ c. Mouse Manager
+ 
+ d. GUI Processing
+
+**Answers:
+a. Event Handling**
+
+9.Which layout manager organizes components in a grid, with each cell of the grid containing a component?
+ 
+ a. Flow Layout
+ 
+ b. Grid Layout
+ 
+ c. Border Layout
+ 
+ d. Card Layout
+
+**Answers:
+b. Grid Layout**
+
+10.what is output?
+```java
+import java.awt.*;
+
+public class LayoutExample extends Frame ( public static void main(String[] args) { Layout Example frame = new LayoutExample(); Button b1 = new Button("Button 1"); Button b2 = new Button("Button 2"); Button b3 = new Button("Button 3");
+
+frame.add(b1);
+
+frame.add(b2);
+
+frame.add(b3);
+
+// create a flow layout
+
+frame.setLayout(new FlowLayout()); frame.setLayout (new GridLayout (2, 2));
+
+frame.setSize(300, 200);
+
+frame.setVisible(true);
+
+}
+}
+```
+ 
+ a. Grid Layout
+ 
+ b. Border Layout
+ 
+ c. Flow Layout
+ 
+ d. Card Layout
+
+**Answers:
+a. Grid Layout**
+
+# WEEK-9
+
+1.Which of the following is a one-line input field that allows the user to choose a number or an object value from an ordered sequence?
+ 
+ a. Jtextarea
+ 
+ b. Jtextfield
+ 
+ c. Jspinner
+ 
+ d. Jslider
+
+**Answers:
+c. Jspinner**
+2. what is output?
+ 
+ a. Both “OK” and “Cancel” button is added, but only “Cancel” button is visble.
+ 
+ b. Only “OK” button is added and visible, “Cancel” button is not added.
+ 
+ c. Only “Cancel” button will be added and visible, “OK” button is not added.
+ 
+ d. Code throws an ERROR.
+
+**Answers:
+a. Both “OK” and “Cancel” button is added, but only “Cancel” button is visble.**
+
+3.Which of the following is a container for other components and is used to build bespoke panels for organizing and arranging components?
+ 
+ a. Jpanel
+ 
+ b. Jframe
+ 
+ c. Jcombo
+ 
+ d. JBox
+**Answers:
+a. Jpanel**
+
+4.Which of the following component gives a drop-down list of options from which to choose?
+ 
+ a. Jpanel
+ 
+ b. Jbutton
+ 
+ c. JComboBox
+ 
+ d. Jbox
+
+**Answers:
+c. JComboBox**
+
+5.Which of the following Swing components inherently support the WindowListener interface?
+ 
+ a. Swing frames (JFrame)
+ 
+ b. Swing checkboxes (JCheckBox)
+ 
+ c. None of these
+ 
+ d. Swing combo boxes (JComboBox)
+
+**Answers:
+a. Swing frames (JFrame)**
+
+6.Which class in Swing provides a graphical way to display images, icons, or custom graphics?
+ 
+ a. Jimage
+ 
+ b. Jlabel
+ 
+ c. JImageIcon
+ 
+ d. JDialog
+
+**Answers:
+b. Jlabel**
+
+7.What is/are the way(s) to create a Frame in Java Swing?
+ 
+ a. By creating the object of Frame class (association)
+ 
+ b. None of these
+ 
+ c. By importing a package named Jframe
+ 
+ d. By declaring a class with name JFrame
+
+**Answers:
+a. By creating the object of Frame class (association)**
+
+8.Which method is used to set the graphics current color to the specified color in the graphics class?
+ 
+ a. public abstract void setFont(Font font)
+ 
+ b. public abstract void setColor(Color c)
+ 
+ c. public abstract void drawString(String str, int x, int y)
+ 
+ d. None of the above
+
+**Answers:
+b. public abstract void setColor(Color c)**
+
+9.When are the keyboard events fired?
+ 
+ a. When the user manually calls the button
+ 
+ b. When the user right clicks the mouse
+ 
+ c. When the user calls the modifier
+ 
+ d. When the user clicks a key
+
+**Answers:
+d. When the user clicks a key**
+
+10.Which of the following function is used to specify the layout of a container.
+ 
+ a. UseLayeout()
+ 
+ b. setLayout()
+ 
+ c. layout()
+ 
+ d. DesignLayout()
+
+**Answers:
+b. setLayout()**
+
+# WEEK-10
+
+1.what is output?
+```java
+import java.net.*;
+
+public class NPTEL {
+
+public static void main(String[] args) {
+
+try {
+
+URI uri = new URI("https://nptel.ac.in/");
+
+URL url = uri.toURL();
+
+System.out.println("Protocol:
+
++ url.getProtocol());
+
+System.out.println("Host Name: " + url.getHost());
+
+System.out.println("Port Number: + url.getPort());
+
+} catch (Exception e) {
+
+System.out.println(e);
+
+}
+
+}
+
+}
+```
+ 
+ a. Protocol: https
+ 
+ b. Host Name: nptel.ac.in
+ 
+ c. Port Number: -1
+ 
+ d. All of the mentioned
+
+**Answers:
+d. All of the mentioned**
+
+2.What will be the output of the following Java program?
+```java
+import java.net.*;
+
+class NPTEL {
+
+public static void main(String[] args) throws UnknownHostException ( InetAddress obj = InetAddress.getByName("nptel.ac.in"); System.out.print(obj1.getHostName());
+
+}
+
+}
+```
+ 
+ a. nptel
+ 
+ b. nptel.ac.in
+ 
+ c. www.nptel.ac.in
+ 
+ d. none of the mentioned
+
+Answers:
+b. nptel.ac.in
+
+3.Which class provides methods to work with URLs?
+
+ a. URLConnection
+
+ b. HttpURL
+ 
+ c. NetURL
+ 
+ d. URL
+
+**Answers:
+d. URL**
+
+4.Which exception is thrown when a connection cannot be established with a remote server?
+ 
+ a. IOException
+ 
+ b. UnknownHostException
+ 
+ c. ConnectionException
+ 
+ d. NetworkException
+
+**Answers:
+b. UnknownHostException**
+
+5.Which class provides methods to create a client-side socket in Java?
+ 
+ a. ServerSocket
+ 
+ b. NetSocket
+ 
+ c. Socket
+ 
+ d. ClientSocket
+
+**Answers:
+c. Socket**
+
+6.Which of the following statement is TRUE?
+ 
+ a. With stream sockets there is no need to establish any connection and data flows between the processes are as continuous streams.
+ 
+ b. Stream sockets are said to provide a connection-less service and UDP protocol is used
+ 
+ c. Datagram sockets are said to provide a connection-oriented service and TCP protocol is used
+ 
+ d. With datagram sockets there is no need to establish any connection and data flows between the processes are as packets.
+
+**Answers:
+d. With datagram sockets there is no need to establish any connection and data flows between the processes are as packets.**
+
+7.The server listens for a connection request from a client using which of the following statement?
+ 
+ a. Socket s = new Socket(ServerName, port);
+ 
+ b. Socket s = serverSocket.accept()
+ 
+ c. Socket s = serverSocket.getSocket()
+ 
+ d. Socket s = new Socket(ServerName);
+
+**Answers:
+b. Socket s = serverSocket.accept()**
+
+8.Which of the following is/are application layer protocol(s)?
+ 
+ a. TCP
+ 
+ b. UDP
+ 
+ c. ARP
+ 
+ d. SMTP
+
+**Answers:
+d. SMTP**
+
+9.In the following URL, identify the Resource name?
+
+https://nptel.ac.in
+ 
+ a. https
+ 
+ b. nptel.ac.in
+ 
+ c. ac.in
+ 
+ d. nptel
+
+**Answers:
+b. nptel.ac.in**
+
+10.what is output?
+```java
+import java.net.*;
+
+public class NPTEL {
+
+public static void main(String[] args) {
+
+try {
+
+InetAddress address = InetAddress.getByName("nptel.ac.in"); System.out.println("Host Name: + address.getHostName());
+
+System.out.println("IP Address: "+ address.getHostAddress
+
+} catch (Exception e) { System.out.println(e);
+
+}
+
+}
+}
+```
+ 
+ a. Just prints the IP address of the local machine
+ 
+ b. Prints the IP address and host name of the local machine
+ 
+ c. Prints the IP address and host name of "nptel.ac.in"
+ 
+ d. Just prints the IP address of "nptel.ac.in"
+
+**Answers:
+c. Prints the IP address and host name of "nptel.ac.in"**
+
+# WEEK-11
+
+1.How do you establish a connection to a database using JDBC?
+ 
+ a. By creating an instance of the Connection interface
+ 
+ b. By using the DriverManager.getConnection() method
+ 
+ c. By implementing the Connection interface
+ 
+ d. By extending the Connection class
+
+**Answers:
+b. By using the DriverManager.getConnection() method**
+
+2.Which method executes a simple query and returns a single Result Set object?
+ 
+ a. executeQuery()
+ 
+ b. executeUpdate()
+ 
+ c. execute()
+ 
+ d. run()
+
+**Answers:
+a. executeQuery()**
+
+3.What is the correct order to close database resources?
+ 
+ a. Connection then Statement then ResultSet
+ 
+ b. ResultSet then Statement then Connection
+ 
+ c. Statement then Connection then ResultSet
+ 
+ d. Statement then ResultSet then Connection
+
+**Answers:
+b. ResultSet then Statement then Connection**
+
+4.Which of the following ensures that the correct driver is used to access each data source.
+ 
+ a. java.sql.Connection
+ 
+ b. java.sql.DriverManager
+ 
+ c. java.sql.Statement
+ 
+ d. java.sql.Driver
+
+**Answers:
+b. java.sql.DriverManager**
+
+5.What is the purpose of the ResultSet interface in JDBC?
+ 
+ a. To store the result of a query
+ 
+ b. To execute SQL queries
+ 
+ c. To manage database connections
+ 
+ d. To update data in the database
+
+**Answers:
+a. To store the result of a query**
+
+6.The following is a statement in Java using JDBC.
+```java
+Connection con = DriverManager.getConnection( "jdbc:mysql://localhost:3306/nptel","joy","java" );
+```
+Which of the following statement is FALSE?
+ 
+ a. 3306 is the default MySQL port.
+ 
+ b. Database name is ‘nptel’
+ 
+ c. The database server is hosted on IP 127.0.0.1
+ 
+ d. Password for ‘java’ user is ‘joy’
+
+**Answers:
+d. Password for ‘java’ user is ‘joy’**
+
+7.Which resources have their close() method called when this code runs?
+
+```java
+public static void runquery (Connection conn) throws SQLException {
+
+try (Statement stmt = conn.createStatement()) { ResultSet rs = stmt.executeQuery("select * from clowns"); rs.next();
+
+}
+
+}
+```
+
+ a. No close() methods are called
+ 
+ b. Only Statement
+ 
+ c. Only Statement and Connection
+ 
+ d. Only Statement and ResultSet
+
+**Answers:
+d. Only Statement and ResultSet**
+
+8.Which of the following is used to call stored procedure?
+ 
+ a. Statement
+ 
+ b. PreparedStatement
+ 
+ c. CallableStatment
+ 
+ d. CalledStatement
+
+**Answers:
+c. CallableStatment**
+
+9.The executeUpdate method can be used with
+ 
+ a. Statements(Select and Update both)
+ 
+ b. Select statement.
+ 
+ c. Update/delete/insert operations in the database.
+ 
+ d. Only insert operation.
+
+**Answers:
+c. Update/delete/insert operations in the database.**
+
+10.What does setAutoCommit(false) do?
+ 
+ a. commits transaction after each query
+ 
+ b. explicitly commits transaction
+ 
+ c. does not commit transaction automatically after each query
+ 
+ d. never commits transaction
+
+**Answers:
+c. does not commit transaction automatically after each query**
+
+# WWEK-12
+
+1.Execution of the following SQL command
+
+ SELECT FROM myTable
+ 
+ using JDBC program will return a ResultSet object. This object is:
+
+ a. Same as the myTable.
+ 
+ b. All records in verbatim from the table.
+ 
+ c. All records in verbatim from the table but those records with null values.
+ 
+ d. All records in verbatim from the table but those records are not with null values.
+
+**Answers:
+b. All records in verbatim from the table.**
+
+2.Which of the following method is used to set a frame, f with size 300 × 200 pixels?
+
+JFrame f=newJFrame();
+
+ a. f.setSize(300, 200)
+ 
+ b. f.setSize(200, 300)
+ 
+ c. f.paint(300, 200)
+ 
+ d. f.setVisible(300, 200)
+
+**Answers:
+a. f.setSize(300, 200)**
+
+3.Consider the following program:
+```java
+public class Question {
+
+public static void main(String[] args) {
+
+String str = "NPTEL Programming in JAVA - JULY 2024";
+
+System.out.println(str.length());
+
+}
+
+}
+```
+ a. 38
+ 
+ b. 39
+ 
+ c. 40
+ 
+ d. 41
+
+**Answers:
+b. 39**
+
+4.What is the output of the following program?
+```java
+public class Test {
+
+public static void aMethod() throws Exception {
+
+try {
+
+throw new Exception();
+
+} finally {
+
+System.out.print("finally ");
+
+}
+
+}
+
+public static void main(String args[]) {
+
+try {
+
+aMethod();
+
+} catch (Exception e) {
+
+System.out.print("exception ");
+
+}
+
+System.out.print("finished ");
+
+}
+
+}
+```
+ a. finally
+ 
+ b. exception finished
+ 
+ c. finally exception finished
+ 
+ d. Compilation fails
+
+**Answers:
+c. finally exception finished**
+
+5.What is the output of the following program?
+```java
+class Program {
+
+public static void main(String[] args) { int counter = 10;
+
+do { System.out.print(2 / counter); counter--;
+
+} while (counter > 2);
+
+}
+
+}
+```
+ a. 00000012
+ 
+ b. 00000000
+ 
+ c. 10011001
+ 
+ d. 12211221
+
+**Answers:
+b. 00000000**
+
+6.What should be the value of X and Y for the output of the below program to be 36?
+```java
+public class Question {
+
+public static void main(String[] args) {
+
+int x = 4 ;
+
+int x = 5 ;
+
+int sum = 0;
+
+for (int i = 0 ; i < X; i++) {
+
+for (int j = i; j < Y; j++) { sum = sum + j;
+
+} } System.out.print(sum);
+
+}
+}
+```
+ a. X = 6 and Y = 5
+ 
+ b. X = 2 and Y = 7
+ 
+ c. X = 1 and Y = 10
+ 
+ d. X = 4 and Y = 5
+
+**Answers:
+d. X = 4 and Y = 5**
+
+7.Which of the following options correctly initializes the elements of the numbers array with values 1, 2, 3, 4, and 5?
+
+```java
+public class NPTEL {
+
+public static void main(String[] args) {
+
+int[] numbers = new int[5];
+
+// #1: Missing code block
+
+System.out.println("First element: + numbers[0]);
+
+}
+
+}
+```
+a. numbers = {1, 2, 3, 4, 5};
+
+b. for (int i = 1; i < numbers.length; i++) { numbers[i] = i; }
+
+c. numbers[] = {1, 2, 3, 4, 5};
+
+d. numbers = new int[]{1, 2, 3, 4, 5};
+
+**Answers:
+d. numbers = new int[]{1, 2, 3, 4, 5};**
+
+8) Which of the following statements are correct and would NOT cause a compilation error?
+
+ ```java
+I.float[] = new float(3);
+
+II. float f1 [] = new float[];
+
+III.float[] f2 = new float[3];
+
+IV. float f3 [] = new float[3];
+
+V. float f4 [] = { 1.0f, 2.0f, 2.0f };
+
+vi. float f5 [] = new float() { 1.0f, 2.0f, 3.0f);
+```
+ a. iii, iv, v, vi
+ 
+ b. i, ii, iii, iv
+ 
+ c. ii, iii, v, vi
+ 
+ d. i, ii, iv, vi
+
+**Answers:
+a. iii, iv, v, vi**
+
+9.What will be the output of this program?
+```java
+public class NPTEL {
+
+public static void main(String[] args) {
+
+String strl = "Hello";
+
+String str2 = "Hello";
+
+String str3 = new String("Hello");
+
+System.out.print((str1 == str2) + ");
+
+System.out.print(str1 = str3);
+
+}
+
+}
+```
+ 
+ a. true false
+ 
+ b. false true
+ 
+ c. true true
+ 
+ d. false false
+
+**Answers:
+a. true false**
+
+10.What will be the output of this program?
+
+```java
+public class NPTEL {
+
+public static void main(String[] args) {
+
+try {
+
+int num = 10 / 0;
+
+System.out.println(num);
+
+} catch (ArithmeticException e) {
+
+System.out.println("Arithmetic exception occurred");
+
+} finally {
+
+System.out.println("Finally block executed");
+
+}
+
+}
+
+}
+```
+ a. Compilation ERROR
+ 
+ b. “Finally block executed”
+ 
+ c. “Arithmetic exception occurred Finally block executed”
+ 
+ d. Runtime ERROR
+
+**Answers:
+c. “Arithmetic exception occurred Finally block executed”**
 
 
 
