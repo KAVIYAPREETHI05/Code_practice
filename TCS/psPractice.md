@@ -157,3 +157,69 @@ class Main{
     }
 }
 ```
+
+## web page clicks
+## java
+```java
+import java.util.*;
+
+public class WebPageClicks {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int N = scanner.nextInt();
+        scanner.nextLine(); 
+        List<List<Integer>> graph = new ArrayList<>(N + 1);
+        for (int i = 0; i <= N; i++) {
+            graph.add(new ArrayList<>());
+        }
+      
+        for (int i = 1; i <= N; i++) {
+            String line = scanner.nextLine().trim();
+            if (!line.isEmpty()) {
+                String[] links = line.split(" ");
+                for (String link : links) {
+                    graph.get(i).add(Integer.parseInt(link));
+                }
+            }
+        }
+       
+        int startPage = scanner.nextInt();
+        int endPage = scanner.nextInt();
+      
+        int result = bfs(graph, startPage, endPage);
+        
+        System.out.println(result);
+        
+        scanner.close();
+    }
+    
+    private static int bfs(List<List<Integer>> graph, int start, int end) {
+        
+        Queue<Integer> queue = new LinkedList<>();
+        boolean[] visited = new boolean[graph.size()];
+        int[] clicks = new int[graph.size()];
+        
+        queue.offer(start);
+        visited[start] = true;
+        clicks[start] = 0;
+        
+        while (!queue.isEmpty()) {
+            int currentPage = queue.poll();
+            if (currentPage == end) {
+                return clicks[currentPage];
+            }
+            List<Integer> neighbors = graph.get(currentPage);
+            for (int i = 0; i < neighbors.size(); i++) {
+                int neighbor = neighbors.get(i);
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    clicks[neighbor] = clicks[currentPage] + 1;
+                    queue.offer(neighbor);
+                }
+            }
+        }
+        return -1;
+    }
+}
+```
