@@ -863,3 +863,332 @@ public class Main {
     }
 }
 ```
+
+## WEEK-6
+### 1.find square 
+```java
+import java.util.*;
+
+interface Number_{
+    int findsqrt(int i);
+}
+class A implements Number_{
+    int square;int n;
+    public int findsqrt(int n){
+        square=n*n;
+        return square;
+    }
+    
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		int n=scan.nextInt();
+		A a=new A();
+		
+		System.out.println(a.findsqrt(n));
+	}
+}
+```
+### 2. find GCD
+
+```java
+import java.util.*;
+
+interface GCD{
+    int findGCD(int n1,int n2);
+}
+class A implements GCD{
+    int n1;int n2;
+    public int findGCD(int n1,int n2){
+        if(n1==0 && n2==0){
+            return -1;
+            
+        }
+        else if (n2==0){
+            return n1;
+        }
+        else{
+            return findGCD(n2,n1%n2);
+        }
+    }
+    
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		int n1=scan.nextInt();
+		int n2=scan.nextInt();
+		A a=new A();
+		
+		System.out.println(a.findGCD(n1,n2));
+	}
+}
+```
+### 3.thread  class
+
+```java
+import java.util.*;
+public class Main extends Thread
+{
+    public void run(){
+        System.out.print("thread is running");
+    }
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		
+		Main m=new Main();
+		m.start();
+		
+	}
+}
+```
+### 4.synchronized method
+```java
+import java.util.*;
+
+class Execute{
+  synchronized   void print(int n){
+        for(int i=1;i<=5;i++){
+            System.out.println(n*i);
+            try{
+                Thread.sleep(400);
+            }
+            catch(Exception e){
+                System.out.println(e);
+            }
+        }
+    }
+}
+class Thread1 extends Thread{
+    Execute t;
+    Thread1(Execute t){
+        this.t=t;
+    }
+    public void run(){
+        t.print(5);
+    }
+}
+class Thread2 extends Thread{
+    Execute t;
+    Thread2(Execute t){
+        this.t=t;
+    }
+    public void run(){
+        t.print(10);
+    }
+}
+
+
+public class Main 
+{
+  
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		Execute obj=new Execute();
+		Thread1 t1=new Thread1(obj);
+		Thread2 t2=new Thread2(obj);
+		t1.start();
+		t2.start();
+	
+		
+	}
+}
+```
+### 5.Name of thread
+
+```java
+import java.util.*;
+
+
+
+public class Main extends Thread
+{
+    public void run(){
+        System.out.println("Thread is running");
+    }
+  
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		 
+		 Main m=new Main();
+		 
+		 System.out.println("Name of thread 't': "+m.getName());
+		 
+		 m.start();
+		 
+		 m.setName("Kaviya");
+		 
+		 System.out.println("New name of thread 't' : "+m.getName());
+	
+		
+	}
+}
+```
+
+## WEEK-7
+
+### 1.longest word
+```java
+import java.util.*;
+
+
+
+public class Main 
+{
+    
+    public static String findLongestWord(String text){
+        String longestWord="";
+        String[] words=text.split("\\s+");
+        
+        for(String word: words){
+            if(word.length()>longestWord.length()){
+                longestWord=word;
+            }
+        }
+        return longestWord;
+    }
+  
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		 
+		 String text=scan.nextLine();
+		 System.out.println("The longest word in the text is: "+ findLongestWord(text));
+		
+	}
+}
+```
+### 3.remove element
+```java
+import java.util.*;
+
+
+
+public class Main 
+{
+    public static int[] removeAll(int[] arr,int remove){
+        ArrayList<Integer> temp=new ArrayList<>();
+        
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=remove){
+                temp.add(arr[i]);
+            }
+        }
+        int [] result=new int[temp.size()];
+        for(int i=0;i<temp.size();i++){
+            result[i]=temp.get(i);
+        }
+        return result;
+    }
+   
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		 
+		int n=scan.nextInt();
+		int[] arr=new int[n];
+		for(int i=0;i<n;i++){
+		    arr[i]=scan.nextInt();
+		}
+		int remove=scan.nextInt();
+		
+		System.out.println("Original Array: " + Arrays.toString(arr));
+		arr=removeAll(arr,remove);
+		System.out.println("Array after removing: " + remove+" "+ Arrays.toString(arr));
+		
+		
+	}
+}
+```
+
+### 4.check prime
+```java
+import java.util.*;
+
+
+
+public class Main 
+{
+    public static boolean isprime(int a){
+        if(a<=1){
+            return false;
+        }
+        for(int i=2;i<=a/2;i++){
+            if(a%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+   
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		 
+		int n1=scan.nextInt();
+		int n2=scan.nextInt();
+		int sum=0;
+		
+		for(int i=n1;i<=n2;i++){
+		    if(isprime(i)){
+		        sum+=i;
+		    }
+		}
+	
+		System.out.println(sum);
+		
+	}
+}
+```
+### 5. even thread and odd thread
+
+```java
+import java.util.*;
+class PrintNumbers implements Runnable{
+    private int start;
+    private int end;
+    public PrintNumbers(int start,int end){
+        this.start=start;
+        this.end=end;
+    }
+    public void run(){
+        for(int i=start;i<=end;i+=2){
+            System.out.println(Thread.currentThread().getName()+": "+i);
+        }
+    }
+}
+
+
+
+public class Main 
+{
+  
+   
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		 
+		int evenStart=scan.nextInt();
+		int evenEnd=scan.nextInt();
+		int oddStart=scan.nextInt();
+		int oddEnd=scan.nextInt();
+		
+		Thread evenThread=new Thread(new PrintNumbers(evenStart,evenEnd),"evenThread");
+		Thread oddThread=new Thread(new PrintNumbers(oddStart,oddEnd),"oddThread");
+		
+		evenThread.start();
+		try{
+		    Thread.sleep(500);
+		}
+		catch (InterruptedException e){
+		    e.printStackTrace();
+		}
+		
+		oddThread.start();
+		
+	
+		
+	}
+}
+```
