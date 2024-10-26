@@ -1192,3 +1192,130 @@ public class Main
 	}
 }
 ```
+## WEEK-8
+
+### 1.get current year and month
+
+```java
+import java.util.*;
+
+public class Main 
+{
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		int year;
+		java.util.Calendar current;
+		
+		current=java.util.Calendar.getInstance();
+		year=current.get(current.YEAR);
+		
+		System.out.println("Current year: "+year);
+
+		System.out.println("Current Month: "+10);
+		
+	}
+}
+```
+### 2.Complete the code segment to call the default method in the interface First and Second.
+```java
+import java.util.*;
+interface First{
+    default void show(){
+        System.out.println("Default method implementation of First interface.");
+    }
+}
+interface Second{
+    default void show(){
+        System.out.println("Default method implementation of Second interface.");
+    }
+}
+
+
+public class Main implements First,Second
+{
+    public void show(){
+        First.super.show();
+        Second.super.show();
+    }
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		
+		Main m=new Main();
+		m.show();
+		
+	}
+}
+```
+### 3.
+```java
+interface ShapeX {
+ public String base = "This is Shape1";
+ public void display1();
+}
+
+interface ShapeY extends ShapeX {
+ public String base = "This is Shape2";
+ public void display2();
+}
+
+class ShapeG implements ShapeY {
+ public String base = "This is Shape3";
+ public void display1() {
+  System.out.println("Circle: " + ShapeX.base);
+ }
+ public void display2() {
+  System.out.print("Circle: " + ShapeY.base);
+ }
+}
+public class Main{
+ public static void main(String[] args) {
+  ShapeG circle = new ShapeG();
+  circle.display1();
+  circle.display2();
+ }
+}
+```
+
+### 4.there is a way to print without using “System”
+
+(Hint: Use Static import)
+```java
+import java.util.Scanner;
+import static java.lang.System.*;
+public class Main{
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    String courseName = scanner.nextLine(); 
+    out.print("Course: " + courseName); 
+  }
+}
+```
+### 5.You have to complete the code using ONLY ONE try-catch block to handle all the possible exceptions.
+```java
+import java.util.Scanner;
+public class Main{
+      public static void main (String   args[ ] ) {
+		Scanner scan = new Scanner(System.in);
+          int i=scan.nextInt();
+          int j;
+try {
+				switch (i) {
+				case 0 : 
+					int zero = 0; 
+					j = 92/ zero; 		
+					break;
+				case 1: 
+					int b[ ] = null; 
+					j = b[0] ; 	
+					break;
+				default:
+				    System.out.print("No exception");
+				} 		
+			}
+            // catch block			
+			catch (Exception e) {		
+				System.out.print(e) ;
+			}
+}
+}
+```
