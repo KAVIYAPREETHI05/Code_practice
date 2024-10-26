@@ -455,12 +455,411 @@ class Main {
          HRManager m=new HRManager(7000);
          m.work();
         System.out.println("Manager salary: "+ m.getSalary());
-        m.addEmployee();
-
-         
-   
-    
+        m.addEmployee();   
 
 }
+}
+```
+
+## WEEK-4
+### 1.Complete the code segment to swap two numbers using call by object reference.
+```java
+import java.util.*;
+
+class Question{
+    Scanner scan=new Scanner(System.in);
+	    int a=scan.nextInt();
+	    int b=scan.nextInt();
+    
+}
+
+public class Main
+{
+    public static void swap(Question t){
+        int temp=t.a;
+        t.a=t.b;
+        t.b=temp;
+    }
+	public static void main(String[] args) {
+	    Question t=new Question();
+	    
+	    System.out.println("Before swap: "+t.a+" "+t.b);
+
+	    swap(t);
+	    System.out.println("After swap: "+t.a+" "+t.b);
+	}
+}
+```
+### 2. find slope
+```java
+import java.util.*;
+
+class Point{
+    private double x;
+    private double y;
+    public Point(double x,double y){
+        this.x=x;
+        this.y=y;
+    }
+    public double slope(Point p2){
+        double slope;
+        slope=(p2.y -y )/(p2.x -x);
+        return slope;
+        
+    }
+    
+   
+}
+
+public class Main
+{
+   
+	public static void main(String[] args) {
+	     Scanner scan=new Scanner(System.in);
+	    double x1=scan.nextInt();
+	    double y1=scan.nextInt();
+	    double x2=scan.nextInt();
+	    double y2=scan.nextInt();
+    
+	    Point p1=new Point(x1,y1);
+	    Point p2=new Point(x2,y2);
+	    
+	    System.out.print("Slope: "+p1.slope(p2));
+	    
+	   
+	}
+}
+```
+### 3.sum and product
+```java
+import java.util.*;
+
+class Hello{
+    
+    static int sum(int a,int b){
+        return a+b;
+    }
+    static int multiply(int a,int b){
+        return a*b;
+    }
+    
+   
+}
+
+public class Main
+{
+   
+	public static void main(String[] args) {
+	     Scanner scan=new Scanner(System.in);
+	    int a=scan.nextInt();
+	    int b=scan.nextInt();
+	    
+	    Hello h=new Hello();
+	    
+	    System.out.println("Sum: "+h.sum(a,b));
+	    System.out.println("Multiply: "+h.multiply(a,b));
+	 
+    
+	  
+	    
+	   
+	}
+}
+```
+
+###
+```java
+import java.util.*;
+
+interface ExtraLarge{
+    static String extra="This is extra";
+    void display();
+}
+
+class Large{
+    
+   public void print(){
+       System.out.println("This is large");
+   }
+}
+
+class Medium extends Large{
+    public void print(){
+        super.print();
+        System.out.println("This is medium");
+    }
+}
+class small extends Medium{
+    public void print(){
+        super.print();
+        System.out.println("This is small");
+    }
+}
+
+public class Main implements ExtraLarge
+{
+   
+	public static void main(String[] args) {
+	     Scanner scan=new Scanner(System.in);
+	     
+	     small s=new small();
+	     s.print();
+	    Main m=new Main();
+	    m.display();
+	    
+	    
+	   
+	}
+	public void display(){
+	    System.out.println(extra);
+	}
+}
+```
+
+### 5.Consider First n even numbers starting from zero(0).Complete the code segment to calculate sum of  all the numbers divisible by 3 from 0 to n. Print the sum.
+```java
+import java.util.*;
+
+
+public class Main 
+{
+   
+	public static void main(String[] args) {
+	     Scanner scan=new Scanner(System.in);
+	     
+	     int n=scan.nextInt();
+	     int sum=0;
+	     int result=1;int i=0;
+	     while(result<=n){
+	         if(i%2==0 ){
+	             if(i%3==0){
+	                   sum+=i; 
+	             }
+	              result++;
+	         }
+	         i++;
+	     }
+	     System.out.println(sum);
+	}
+
+}
+```
+
+## WEEK-5
+
+### 1.Write a program to create a method that takes an integer as a parameter and throws an exception if the number is odd.
+
+```java
+import java.util.*;
+
+
+public class Main 
+{
+   
+	public static void main(String[] args) {
+	     Scanner scan=new Scanner(System.in);
+	     
+	     int n=scan.nextInt();
+	    trynumber(n);
+	    
+	}
+	
+	public static void trynumber(int n){
+	    try{
+	        checkEvenNumber(n);
+	        System.out.print(n +"it is even");
+	    }
+	    catch (IllegalArgumentException e){
+	        System.out.print("Error: "+ e.getMessage());
+	    }
+	}
+	
+	public static void checkEvenNumber(int n) throws IllegalArgumentException{
+	    if(n%2!=0){
+	        throw new IllegalArgumentException(n +"is odd");
+	    }
+	}
+
+}
+```
+
+### 2.
+
+```java
+import java.util.*;
+
+interface Searchable{
+    boolean search(String keyword);
+}
+class Document implements Searchable{
+    private String content;
+    public Document(String content){
+        this.content=content;
+    }
+    public boolean search(String keyword){
+        return content.contains(keyword);
+    }
+    
+}
+class WebPage implements Searchable{
+    private String url;
+    private String htmlContent;
+    public WebPage(String url,String htmlContent){
+        this.url=url;
+        this.htmlContent=htmlContent;
+        
+        
+    }
+    
+    public boolean search(String keyword){
+        return htmlContent.contains(keyword);
+    }
+    
+}
+
+public class Main 
+{
+   
+	public static void main(String[] args) {
+	     Scanner scan=new Scanner(System.in);
+	   String text=scan.nextLine();
+	   String document=text;
+	   String str=scan.nextLine();
+	   Document d=new Document(document);
+	   
+	   boolean documentContainsKeyword= d.search(str);
+	   System.out.println("Document contains keyword: " +str+ " "+documentContainsKeyword);
+
+        WebPage webPage = new WebPage("https://onlinecourses.nptel.ac.in", "This is a NPTEL online course webpage.");
+
+	   	   boolean webPageContainsKeyword= webPage.search(str);
+        System.out.print("Webpage contains keyword 'webpage': " + webPageContainsKeyword);
+
+	}
+	
+}
+```
+
+### 3.Write a  program to create a method that takes a string as input and throws an exception if the string does not contain vowels.
+(Note: Check both upper and lower case vowels)
+```java
+import java.util.*;
+
+class NoVowelsException extends Exception{
+    public NoVowelsException(String message){
+        super(message);
+    }
+}
+public class Main 
+{
+   
+	public static void main(String[] args) {
+	     Scanner scan=new Scanner(System.in);
+	  try{
+	      String text=scan.nextLine();
+	      
+	      System.out.println("Original String: "+text);
+	      
+	      checkVowels(text);
+	      System.out.println("String contains vowels");
+	  }
+	  catch(NoVowelsException  e){
+	      System.out.println("Error: "+e.getMessage());
+	  }
+	}
+	public static void checkVowels(String text) throws NoVowelsException{
+	    if(!text.toLowerCase().matches(".*[aeiou].*")){
+	        throw new NoVowelsException("String does not conatin any vowels");
+	    }
+	}
+	
+}
+```
+
+### 4.Write a  program to create an interface Flyable with a method called fly_obj().
+```java
+import java.util.*;
+
+interface Flyable{
+    public void fly_obj();
+}
+class Spacecraft implements Flyable{
+    public void fly_obj(){
+        System.out.println("Spacecraft is flying");
+    }
+    
+}
+class Airplane implements Flyable{
+    public void fly_obj(){
+        System.out.println("Aeroplane is flying");
+    }
+    
+}
+class Helicopter implements Flyable{
+    public void fly_obj(){
+        System.out.println("Helicopter is flying");
+    }
+    
+}
+public class Main 
+{
+   
+	public static void main(String[] args) {
+	     Scanner scan=new Scanner(System.in);
+	     
+	    /* Flyable f=new Spacecraft();
+	     Flyable f1=new Airplane();
+	     Flyable f2=new Helicopter();
+	     */
+	     
+	     Flyable[] fff={new Spacecraft(),new Airplane(),new Helicopter()};
+	     
+	    /* f.fly_obj();
+	     f1.fly_obj();
+	     f2.fly_obj();*/
+	     
+	     for(Flyable obj:fff){
+	         obj.fly_obj();
+	     }
+	     
+	  
+	}
+	
+	
+}
+```
+### 5. Write a program to create an interface Playable with a method play() that takes no arguments and returns void.
+
+(same as previous question)
+
+```java
+interface Playable {
+    void play();
+}
+class Football implements Playable {
+  public void play() {
+    System.out.println("Playing football");
+  
+  }
+}
+class Volleyball implements Playable {
+    public void play() {
+        System.out.println("Playing volleyball");
+    }
+}
+class Basketball implements Playable {
+    public void play() {
+        System.out.print("Playing basketball");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Playable football = new Football();
+        Playable volleyball = new Volleyball();
+        Playable basketball = new Basketball();
+        football.play();
+        volleyball.play();
+        basketball.play();
+    }
 }
 ```
