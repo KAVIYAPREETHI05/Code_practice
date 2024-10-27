@@ -1319,3 +1319,331 @@ try {
 }
 }
 ```
+
+## WEEK-9
+
+### 1.pattern printing
+```java
+import java.util.Scanner;
+class W09_P1 {
+  public static void main(String args[]) 
+    {
+        Scanner in = new Scanner(System.in);
+        //System.out.print("Input the number:  ");
+        int n = in.nextInt();
+int count = 1;
+        int no_of_spaces = 1;
+        int start = 0;
+
+        for (int i = 1; i < (n * 2); i++) 
+        {
+
+            for (int spc = n - no_of_spaces; spc > 0; spc--) 
+            {
+                System.out.print(" ");
+            }
+            if (i < n) 
+            {
+                start = i;          //for number
+                no_of_spaces++;    //for spaces
+            } else 
+            {
+                start = n * 2 - i;   //for number
+                no_of_spaces--;      //for space
+            }
+            for (int j = 0; j < count; j++) 
+            {
+                System.out.print(start);
+                if (j < count / 2) 
+                {
+                    start--;
+                } else 
+                {
+                    start++;
+                }
+            }
+            if (i < n)
+            {
+                count = count + 2;
+            } else {
+                count = count - 2;
+            }
+
+            System.out.println();
+        }
+}
+}
+```
+### 2.abstract class
+```java
+abstract class Person {
+    public abstract void eat();
+    public abstract void sleep();
+    public abstract void exercise();
+  }
+class Athlete extends Person {
+    @Override
+    public void eat() {
+      System.out.println("Athlete: Include foods full of calcium, iron, potassium, and fiber.");
+    }
+
+    @Override
+    public void sleep() {
+      System.out.println("Athlete: sleeps for 8 hours.");
+    }
+  
+    @Override
+    public void exercise() {
+      System.out.println("Athlete: Training allows the body to gradually build up strength and endurance, improve skill levels and build motivation, ambition and confidence.");
+    }
+  }
+
+  class LazyPerson extends Person {
+    @Override
+    public void eat() {
+      System.out.println("Couch Potato: Eating while watching TV also prolongs the time period that we're eating.");
+    }
+
+    @Override
+    public void sleep() {
+      System.out.print("Couch Potato: sleeps for 12 hours.");
+    }
+  
+    @Override
+    public void exercise() {
+      System.out.println("Couch Potato: Rarely exercising or being physically active.");
+    }
+  }
+public class W09_P2 {
+    public static void main(String[] args) {
+      Person athlete = new Athlete();
+      Person lazyPerson = new LazyPerson();
+      athlete.eat();
+      athlete.exercise();
+      athlete.sleep();
+      lazyPerson.eat();
+      lazyPerson.exercise();
+      lazyPerson.sleep();
+    }
+  }
+```
+### 3.Write a Java program to create a base class Shape with methods draw() and calculateArea().
+```java
+import java.util.Scanner;
+abstract class Shape {
+    public abstract void draw();
+  
+    public abstract double calculateArea();
+  }
+class Circle extends Shape {
+    private double radius;
+  
+    public Circle(double radius) {
+      this.radius = radius;
+    }
+  
+    @Override
+    public void draw() {
+      System.out.println("Drawing a circle");
+    }
+  
+    @Override
+    public double calculateArea() {
+      return Math.PI * radius * radius;
+    }
+  
+    protected double getRadius() {
+      return radius;
+    }
+  }
+  //Cylinder.java
+  class Cylinder extends Circle {
+    private double height;
+  
+    public Cylinder(double radius, double height) {
+      super(radius);
+      this.height = height;
+    }
+  
+    @Override
+    public void draw() {
+      System.out.println("Drawing a cylinder");
+    }
+  
+    @Override
+    public double calculateArea() {
+      // Calculate the total surface area of the cylinder (including the circular top and bottom)
+      double circleArea = super.calculateArea();
+      double sideArea = 2 * Math.PI * getRadius() * height;
+      return 2 * circleArea + sideArea;
+    }
+  }
+public class W09_P3{
+    public static void main(String[] args) {
+      Scanner in = new Scanner(System.in);
+      int radius = in.nextInt();
+      int height = in.nextInt();
+
+      Shape circle = new Circle(radius);
+      Shape cylinder = new Cylinder(radius, height);
+  
+      drawShapeAndCalculateArea(circle);
+      drawShapeAndCalculateArea(cylinder);
+    }
+  
+    public static void drawShapeAndCalculateArea(Shape shape) {
+      shape.draw();
+      double area = shape.calculateArea();
+      System.out.printf("Area: %.4f%n", area);
+    }
+  }
+```
+
+### 4.
+```java
+import java.util.Scanner;
+class ElectronicsProduct {
+    // Attributes for the product ID, name, and price
+    private String productId;
+    private String name;
+    private double price;
+
+    // Constructor to initialize the ElectronicsProduct object
+    public ElectronicsProduct(String productId, String name, double price) {
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+    }
+
+    // Method to apply a discount to the product price
+    public void applyDiscount(double discountPercentage) {
+        // Calculate the discount amount
+        double discountAmount = price * discountPercentage / 100;
+        // Subtract the discount amount from the original price
+        price -= discountAmount;
+    }
+
+    // Method to calculate the final price after discount
+    public double getFinalPrice() {
+        // Return the current price which may have been discounted
+        return price;
+    }
+
+    // Getter for product ID
+    public String getProductId() {
+        return productId;
+    }
+
+    // Getter for name
+    public String getName() {
+        return name;
+    }
+
+    // Getter for price
+    public double getPrice() {
+        return price;
+    }
+}
+class WashingMachine extends ElectronicsProduct {
+    // Additional attribute for the warranty period
+    private int warrantyPeriod; // in months
+
+    // Constructor to initialize the WashingMachine object
+    public WashingMachine(String productId, String name, double price, int warrantyPeriod) {
+        // Call the superclass constructor to initialize common attributes
+        super(productId, name, price);
+        this.warrantyPeriod = warrantyPeriod;
+    }
+
+    // Method to extend the warranty period
+    public void extendWarranty(int additionalMonths) {
+        // Add the additional months to the current warranty period
+        warrantyPeriod += additionalMonths;
+    }
+
+    // Getter for warranty period
+    public int getWarrantyPeriod() {
+        return warrantyPeriod;
+    }
+
+    // Override the display method to include warranty period
+    @Override
+    public void applyDiscount(double discountPercentage) {
+        // Call the superclass method to apply the discount
+        super.applyDiscount(discountPercentage);
+        // Display a message indicating the discount was applied
+        System.out.println("Discount applied to Washing Machine: " + getName());
+    }
+}
+public class W09_P4{
+    public static void main(String[] args) {
+        // Create an ElectronicsProduct object
+        ElectronicsProduct product = new ElectronicsProduct("WM123", "Washing Machine", 1.00);
+        // Apply a discount and display the final price
+        product.applyDiscount(10);
+        //System.out.println("Product ID: " + product.getProductId());
+        //System.out.println("Name: " + product.getName());
+        //System.out.println("Price after discount: $" + product.getFinalPrice());
+        //System.out.println();
+
+        // Create a WashingMachine object
+        Scanner in = new Scanner(System.in);
+
+        String productId = in.nextLine();     
+        String name = in.nextLine();
+        int price = in.nextInt();
+        int warrantyPeriod = in.nextInt();
+        
+        int discountPercentage = in.nextInt();
+
+        WashingMachine washingMachine = new WashingMachine(productId,name,price,warrantyPeriod);
+        // Apply a discount and display the final price
+        washingMachine.applyDiscount(discountPercentage);
+        System.out.println("Product ID: " + washingMachine.getProductId());
+        System.out.println("Name: " + washingMachine.getName());
+        System.out.println("Price after discount: $" + washingMachine.getFinalPrice());
+        // Display the warranty period
+        System.out.println("Warranty period: " + washingMachine.getWarrantyPeriod() + " months");
+
+        // Extend the warranty period and display the new warranty period
+        washingMachine.extendWarranty(12);
+        System.out.print("Warranty period after extension: " + washingMachine.getWarrantyPeriod() + " months");
+    }
+}
+```
+### 5.Write a Java program to find the length of the longest sequence of zeros in binary representation of an integer.
+```java
+import java.util.Scanner;
+public class W09_P5{
+static int maxZeros(int N) {
+                // variable to store the length of
+                        // longest consecutive 0's
+                        int maxm = -1;
+
+                        // to temporary store the consecutive 0's
+                        int cnt = 0;
+
+                        while (N != 0) {
+                                if ((N & 1) == 0) {
+                                        cnt++;
+                                        N >>= 1;
+                                        maxm = Math.max(maxm, cnt);
+                                } else {
+
+                                        maxm = Math.max(maxm, cnt);
+                                        cnt = 0;
+                                        N >>= 1;
+                                }
+                        }
+                        return maxm;
+                }
+public static void main(String args[]) {
+                Scanner in = new Scanner(System.in);
+
+                int n = in.nextInt();
+                System.out.print(maxZeros(n));
+
+        }
+  
+}
+```
