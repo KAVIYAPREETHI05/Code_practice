@@ -77,6 +77,10 @@ public class Worker {
 
 - TABLE: The persistence provider must assign primary keys for the entity using an underlying database table to ensure uniqueness.
 
+@EntityScan - If our class is in a different package from your Spring Boot main application class, you might need to specify the package for entity scanning.
+
+@RequestStatus - To indicate the HTTP status code that should be returned in the response for a specific handler method or exception.
+
   
 @SpringBootApplication
 
@@ -107,9 +111,11 @@ Auto-Configuration Conditions
 
 @RequestBody
 
-@Autowired
+@Autowired - It is used for dependency injection. It allows Spring to automatically resolve and inject collaborating beans (components, services, repositories, etc.) into a class. 
 
-@RestController
+@Qualifier - If there are multiple beans of the same type and you want to specify which one to inject, you can use the @Qualifier annotation along with @Autowired
+
+@RestController 
 
 @Bean
 
@@ -117,14 +123,18 @@ Auto-Configuration Conditions
 
 ## REQUEST HANDLING AND CONTROLLER ANNOTATIONS
 
-@Controller
+@Controller - It is used to define a class as a Spring MVC controller. It marks the class as a component that can handle incoming HTTP requests and respond accordingly. They typically return view names (for rendering HTML) rather than raw data.
+
+@ResponseBody - It is used to indicate that the return value of a method should be written directly to the HTTP response body, instead of being interpreted as a view name. This is particularly useful for RESTful services that return data in JSON or XML format.
 
 @RestController
-  -   @RestController = @Controller + @ResponseBody 
+  -   @RestController = @Controller + @ResponseBody
+    
+  -   It is used to define a controller that handles HTTP requests in a RESTful web service and automatically serializes responses into JSON or XML format based on the client's request.
 
 @RequestMapping
 
-  -  @GetMapping
+  -  @GetMapping -  It specifically maps HTTP GET requests to a method in a controller class. This is typically used to retrieve data from the server.
 
   -  @PutMapping
   
@@ -137,8 +147,6 @@ Auto-Configuration Conditions
 @RequestParam
 
 @PathVariable
-
-@RequestBody
 
 
 
