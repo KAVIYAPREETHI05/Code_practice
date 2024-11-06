@@ -57,31 +57,12 @@ Basics building blocks of a Computer network are **Nodes** and **Links**.
 
 ``hostname``  DESKTOP-4M4EJKJ
 
-``ipconfig``
-
-IPv4 Address: 192.168.237.124 - 32 bits
-
-IPv6 Address: 2401:4900:6335:2656:12ce:3cfc:e734:a3a4 -128 bits
+``ipconfig`` -IPV4 -32bits  IPV6 -128bits
            
 ``netstat -a -port``    16 bits
 
-  TCP    0.0.0.0:49670          DESKTOP-4M4EJKJ:0      LISTENING 
   
-  TCP    0.0.0.0:53399          DESKTOP-4M4EJKJ:0      LISTENING
   
-  TCP    0.0.0.0:57621          DESKTOP-4M4EJKJ:0      LISTENING
-  
-  TCP    127.0.0.1:10533        DESKTOP-4M4EJKJ:0      LISTENING
-  
-  TCP    127.0.0.1:62811        kubernetes:62812       ESTABLISHED
-  
-  TCP    127.0.0.1:62812        kubernetes:62811       ESTABLISHED
-  
-  TCP    127.0.0.1:62813        kubernetes:62814       ESTABLISHED
-  
-  TCP    127.0.0.1:62814        kubernetes:62813       ESTABLISHED
-  
-  TCP    172.20.192.1:139       DESKTOP-4M4EJKJ:0      LISTENING
   
 **Types of ports**
 
