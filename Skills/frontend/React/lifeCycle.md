@@ -9,3 +9,6 @@ The React lifecycle is divided into three main phases:
 3.**Updating Phase**: This occurs when a component is re-rendered due to changes in props or state.
 
 4.**Unmounting Phase**: This is the final phase when a component is removed from the DOM.
+
+![image](https://github.com/user-attachments/assets/809627f6-d2e3-4543-a0f5-d6cacf560da3)
+
