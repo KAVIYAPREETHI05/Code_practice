@@ -2,6 +2,8 @@
 
 JSX- Javascript Syntax Extension
 
+JSX stands for JavaScript XML.
+
 JSX combines HTML and JavaScript, allowing you to embed JavaScript objects within HTML elements.
 
 ```jsx
@@ -12,6 +14,7 @@ const ele = <h1>Welcome to {name}</h1>;
 React was invented by Facebook developers who found the traditional DOM slow. By implementing a virtual DOM, React addressed this issue and gained popularity rapidly.
 
 The current stable version of ReactJS is 18.2.0, released on June 14, 2022.
+
 
 ### virtual DOM
 
@@ -64,4 +67,21 @@ function Counter() {
   );
 }
 ```
+
+**Expression** 
+
+As JSX is an expression, we can use it inside of if statements and for loops, assign it to variables, accept it as arguments, or return it from functions.
+
+To embed any JavaScript expression in a piece of code written in JSX we will have to wrap that expression in **curly braces {}.**
+
+**Attributes**
+
+JSX allows us to use attributes with the HTML elements just like we do with normal HTML. But instead of the normal naming convention of HTML, JSX uses the camelcase convention for attributes.
+
+ JSX will throw an error if the HTML is not correct or if there are multiple child elements without a parent element.
+
+ Comments in JSX begin with /* and ends with */.
+
+ Close all the tags: <img/>
+
    
