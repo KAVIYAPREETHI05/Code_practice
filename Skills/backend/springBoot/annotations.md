@@ -153,5 +153,11 @@ Auto-Configuration Conditions
 
 
 
-@ResponseBody
+@Body
 @ModelAttribute
+
+``Response Entity`` - a ResponseEntity is a class in the ``org.springframework.http`` package that represents the HTTP response, including the status code, headers, and body.
+
+responseBody: The data returned as the body of the HTTP response.
+
+HttpStatus.OK: The HTTP status code indicating success (200).
