@@ -28,6 +28,10 @@ Two pointers reduce unnecessary computations and efficiently find the solution t
 
 **1.two sum**
 
+leetcode-1
+
+
+
 ```java
 import java.util.Arrays;
 
@@ -64,6 +68,9 @@ class Solution {
 
 ```
 **2.three sum**
+
+leetcode-15
+
 
 ```java
 class Solution {
@@ -102,7 +109,64 @@ class Solution {
 }
 ```
 **3.container with most water**
+
+leetcode-11
+
+
+```java
+class Solution {
+    public int maxArea(int[] height) {
+        int n = height.length;
+        int left = 0, right = n - 1;
+        int max = 0;
+
+        while (left < right) {
+            int minHeight = Math.min(height[left], height[right]);
+            int width = right - left;
+            int area = minHeight * width;
+
+            max = Math.max(max, area);
+
+            // Move the pointer pointing to the shorter line inward
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+
+        return max;
+    }
+}
+
+```
+
 **4.valid palindrome**
+
+leetcode-125
+
+```java
+
+class Solution {
+    public boolean isPalindrome(String s) {
+        StringBuilder filtered = new StringBuilder();
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            if(Character.isLetterOrDigit(c)){
+                filtered.append(Character.toLowerCase(c));
+            }
+        }
+int l=filtered.length();
+        for(int i=0;i<l/2;i++){
+            if(filtered.charAt(i)!=filtered.charAt(l-1-i)){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
 
 ### staged directional
 
