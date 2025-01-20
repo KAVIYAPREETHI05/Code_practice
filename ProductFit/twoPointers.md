@@ -27,7 +27,80 @@ Two pointers reduce unnecessary computations and efficiently find the solution t
 ### inward directional
 
 **1.two sum**
+
+```java
+import java.util.Arrays;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // Step 1: Store the original indices with the numbers
+        int[][] numsWithIndices = new int[nums.length][2];
+        for (int i = 0; i < nums.length; i++) {
+            numsWithIndices[i][0] = nums[i]; // Value
+            numsWithIndices[i][1] = i;      // Original Index
+        }
+
+        // Step 2: Sort the array by values
+        Arrays.sort(numsWithIndices, (a, b) -> Integer.compare(a[0], b[0]));
+
+        // Step 3: Use two-pointer technique to find the target sum
+        int left = 0, right = numsWithIndices.length - 1;
+        while (left < right) {
+            int sum = numsWithIndices[left][0] + numsWithIndices[right][0];
+            if (sum < target) {
+                left++;
+            } else if (sum > target) {
+                right--;
+            } else {
+                // Return the original indices
+                return new int[] {numsWithIndices[left][1], numsWithIndices[right][1]};
+            }
+        }
+
+        // Step 4: If no solution exists, throw an exception
+        throw new IllegalArgumentException("No two sum solution");
+    }
+}
+
+```
 **2.three sum**
+
+```java
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+
+        int n=nums.length;
+        Arrays.sort(nums);
+        List<List<Integer>> result=new ArrayList<>();
+
+        for(int i=0;i<n-2;i++){
+            if(i!=0 && nums[i-1]==nums[i]) continue;
+            int left=i+1;int right=n-1;
+            while(left<right){
+                int sum=nums[i]+nums[left]+nums[right];
+                if(sum<0){
+                    left++;
+                }
+                else if(sum>0){
+                    right--;
+                }
+                else if(sum==0){
+                    List<Integer>temp=Arrays.asList(nums[i],nums[left],nums[right]);
+                    result.add(temp);
+                    left++;
+                    right--;
+
+                    while(left<right && nums[left-1]==nums[left])left++;
+                    while(left<right && nums[right+1]==nums[right]) right--;
+                    
+                }
+            }
+        }
+        return result;
+        
+    }
+}
+```
 **3.container with most water**
 **4.valid palindrome**
 
