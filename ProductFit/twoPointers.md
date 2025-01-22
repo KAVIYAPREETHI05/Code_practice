@@ -234,3 +234,43 @@ class Solution {
     }
 }
 ```
+
+**2.Next Greater Element I**
+
+leetcode-496
+
+```java
+class Solution {
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        ArrayList<Integer> arr=new ArrayList<>();
+        for(int i=0;i<nums1.length;i++){
+           int index=-1;
+            for(int j=0;j<nums2.length-1;j++){
+                if(nums1[i]==nums2[j]){
+                    index=j;
+                    break;
+                }   
+                         
+            }
+
+            int nextGreater=-1;
+           if(index!=-1){
+             for(int k=index+1;k<nums2.length;k++){
+                if(nums2[k]>nums1[i]){
+                    nextGreater=nums2[k];
+                    
+                    break;
+                }
+            }
+           }
+            arr.add(nextGreater);
+           
+        }
+        int[] result=new int[arr.size()];
+        for(int l=0;l<result.length;l++){
+            result[l]=arr.get(l);
+        }
+        return result;
+    }
+}
+```
