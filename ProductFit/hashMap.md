@@ -21,6 +21,7 @@ It allows you to store **key-value** pairs, where each key is unique, and it map
 - implementing dictionaries
 - finding pairs or triplets
 - storing unique elements
+- mongodb
 
 **1.two sum**
 
