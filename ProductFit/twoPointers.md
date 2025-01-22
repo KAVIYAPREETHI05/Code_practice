@@ -20,7 +20,33 @@ Two pointers reduce unnecessary computations and efficiently find the solution t
 
 ### unidirectional
 
-**1.arrange zero**
+**1.move zeros**
+
+leetcode-283
+
+```java
+class Solution {
+    public void moveZeroes(int[] nums) {
+
+        int left=0;
+        int right=0;
+
+        while(right<nums.length){
+            if(nums[right]==0){
+                right++;
+            }
+            else{
+                int temp=nums[right];
+                nums[right]=nums[left];
+                nums[left]=temp;
+                left++;
+                right++;
+            }
+        }
+        
+    }
+}
+```
 
 
 
@@ -171,3 +197,40 @@ int l=filtered.length();
 ### staged directional
 
 **1.next permutation**
+
+leetcode-31
+
+```java
+class Solution {
+    public void nextPermutation(int[] nums) {
+        int n=nums.length;
+        int i=n-2;
+        while(i>=0 && nums[i]>=nums[i+1]){
+            i--;
+        }
+        if(i>=0){
+            int j=n-1;
+            while(nums[j]<=nums[i]){
+                j--;
+            }
+            swap(nums,i,j);
+        }
+        reverse(nums,i+1);
+        
+    }
+    public void swap(int[] nums,int i,int j){
+        int temp=nums[i];
+        nums[i]=nums[j];
+        nums[j]=temp;
+
+    }
+    public void reverse(int[] nums,int start){
+        int end=nums.length-1;
+        while(start<end){
+            swap(nums,start,end);
+            start++;
+            end--;
+        }
+    }
+}
+```
