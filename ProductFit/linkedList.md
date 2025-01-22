@@ -72,5 +72,64 @@ class Solution {
 
 **2.search in linked list**
 
+```java
+class Solution {
+    static boolean searchKey(int n, Node head, int key) {
+     
+        
+        while(head!=null){
+            if(head.data==key){
+                return true;
+            }
+            head=head.next;
+        }
+        return false;
+    }
+}
+```
+
+**3.insert element at end**
+
+```java
+class Solution {
+    Node insertAtEnd(Node head, int x) {
+        Node newNode=new Node(x);
+        if(head==null){
+            return newNode;
+        }
+        Node temp=head;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next=newNode;
+       
+        return head;
+    }
+}
+```
+
+**4.delete first element in ll**
+
+**5.delete last element in ll**
+
+```java
+class Solution {
+    Node deleteLastNode(Node head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+
+        Node temp = head;
+        while (temp.next != null && temp.next.next != null) {
+            temp = temp.next;
+        }
+
+        temp.next = null;
+
+        return head;
+    }
+}
+```
+
 
 
