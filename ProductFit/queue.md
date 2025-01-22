@@ -1,10 +1,10 @@
-### Queue
+## Queue
 
 A Queue is a linear data structure that follows the **First In, First Out (FIFO)** principle. 
 
 The element added first to the queue is the one that will be removed first.
 
-## Application
+### Application
 
 - job scheduling
 - bfs
@@ -127,4 +127,84 @@ class MyStack {
  */
 ```
 **3.petrol pump or gas station**
+
+leetcode-134
+
+```java
+class Solution {
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        Queue<Integer>q=new LinkedList<>();
+int start=0;int totalCost=0;int totalGas=0;int currentGas=0;
+
+for(int i=0;i<gas.length;i++){
+    totalGas+=gas[i];
+    totalCost+=cost[i];
+}
+
+if(totalGas<totalCost){
+    return -1;
+}
+
+
+for(int i=0;i<gas.length;i++){
+    
+    int remainingGas=gas[i]-cost[i];
+    currentGas+=remainingGas;
+            q.add(remainingGas);
+            if(currentGas<0 ){
+                while( !q.isEmpty()){
+                    q.poll();
+                }
+               currentGas=0;
+               start=i+1;
+
+            }
+
+        }
+   
+       return start;
+        
+    }
+}
+```
+
+```java
+---------circular--------
+class Solution {
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        Queue<Integer>q=new LinkedList<>();
+int start=0;int totalCost=0;int totalGas=0;int currentGas=0;
+
+for(int i=0;i<gas.length;i++){
+    totalGas+=gas[i];
+    totalCost+=cost[i];
+}
+
+if(totalGas<totalCost){
+    return -1;
+}
+
+
+for(int i=0;i<gas.length*2;i++){
+    int index=i%gas.length;
+    
+    int remainingGas=gas[index]-cost[index];
+    currentGas+=remainingGas;
+            q.add(remainingGas);
+            if(currentGas<0 ){
+                while( !q.isEmpty()){
+                    q.poll();
+                }
+               currentGas=0;
+               start=(index+1)%gas.length;
+
+            }
+
+        }
+   
+       return start;
+        
+    }
+}
+```
 **4.LRU cache**
