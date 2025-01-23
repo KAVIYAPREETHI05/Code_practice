@@ -130,6 +130,218 @@ class Solution {
     }
 }
 ```
+**6.Reverse Linked List**
+
+leetcode-206
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+
+        ListNode prev=null;
+        ListNode curr=head;
+        ListNode nextNode=new ListNode();
+
+        while(curr!=null){
+            nextNode=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=nextNode;
+
+        }
+     
+        return prev;
+        
+    }
+}
+```
+
+**merge k two sorted list**
+**find intersection**
+**detect cycle**
+**add two num**
+**remove kth from end**
+**rearrange nodes**
+**palindrom linked list**
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        if(head==null || head.next==null){
+            return true;
+        }
+        ListNode slow=head;ListNode fast=head;
+
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+
+        ListNode curr=slow;
+        ListNode prev=null;
+
+        while(curr!=null){
+            ListNode newNode=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=newNode;
+        }
+
+          ListNode firstHalf=head; ListNode secondHalf=prev;
+
+       while(secondHalf!=null){
+        if(firstHalf.val!=secondHalf.val){
+            return false;
+        }
+        firstHalf=firstHalf.next;
+        secondHalf=secondHalf.next;
+       }
+       return true;
+        
+    }
+}
+```
+**Finding middle element in a Linked list $**
+
+```java
+class Solution {
+        int getMiddle(Node head) {
+            if(head==null || head.next==null){
+                return head.data;
+            }
+           
+            Node slow=head;
+            Node fast=head;
+            while(fast!=null && fast.next!=null){
+                slow=slow.next;
+                fast=fast.next.next;
+            }
+            
+            
+            return slow.data;
+            
+        }
+    }
+```
+
+**Reverse a Linked list $**
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+
+        ListNode prev=null;
+        ListNode curr=head;
+        ListNode nextNode=new ListNode();
+
+        while(curr!=null){
+            nextNode=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=nextNode;
+
+        }
+     
+        return prev;
+        
+    }
+}
+```
+**Rotate a Linked List $**
+
+leetcode-61
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+           ListNode temp=new ListNode();
+        if(k==0 || head==null || head.next==null){
+            return head;
+        }
+        temp=head;
+        int length=0;
+        while(temp!=null){
+            length++;
+            temp=temp.next;
+
+        }
+
+
+        for(int i=0;i<k%length;i++){
+            ListNode newNode=new ListNode();
+           
+              ListNode prev=null;
+
+temp=head;
+            while(temp.next.next!=null){
+                temp=temp.next;
+            }
+          newNode=temp.next;
+          temp.next=prev;
+
+          newNode.next=head;
+          head=newNode;
+
+        }       
+
+            return head;
+        
+    }
+}
+```
+**Reverse a Linked List in groups of given size**
+**Intersection point in Y shaped Linked lists**
+**Detect Loop in Linked list**
+**Remove loop in Linked List**
+**n’th node from end of Linked list**
+**Flattening a Linked List**
+**Merge two sorted Linked lists**
+**Pairwise swap of a Linked list**
+**Add two numbers represented by Linked lists**
+**Check if Linked List is Palindrome**
+**Implement Queue using Linked List**
+**Implement Stack using Linked List**
+**Given a Linked list of 0s, 1s and 2s, sort it**
+**Delete without head pointer**
 
 
 
