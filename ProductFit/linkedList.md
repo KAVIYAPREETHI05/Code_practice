@@ -165,6 +165,46 @@ class Solution {
     }
 }
 ```
+**Add 1 to linked list**
+```java
+class Solution {
+    public Node addOne(Node head) {
+        // code here.
+        if(head==null){
+            return new Node(1);
+        }
+        
+        head=reversedLinkedList(head);
+        Node current=head;
+        int carry=1;
+        Node prev=null;
+        
+        while(current!=null){
+            int sum=current.data+carry;
+            current.data=sum%10;
+            carry=sum/10;
+            prev=current;
+            current=current.next;
+        }
+        if(carry>0){
+            prev.next=new Node(carry);
+        }
+        head=reversedLinkedList(head);
+        return head;
+    }
+    Node reversedLinkedList(Node head){
+    Node prev=null;
+    while(head!=null){
+        Node newNode=head.next;
+        head.next=prev;
+        prev=head;
+        head=newNode;
+    }
+    return prev;
+}
+
+}
+```
 
 **merge k two sorted list**
 **find intersection**
