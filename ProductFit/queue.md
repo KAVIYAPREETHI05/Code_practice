@@ -208,3 +208,34 @@ for(int i=0;i<gas.length*2;i++){
 }
 ```
 **4.LRU cache**
+
+
+
+---
+---
+
+**Parenthesis Checker**
+
+**Merge Overlapping Intervals**
+
+**Stock span problem**
+
+**Next larger element**
+
+**Largest Rectangular Area in a Histogram**
+
+**Queue using two Stacks**
+
+**Stack using two queues**
+
+**Get minimum element from stack**
+
+**LRU Cache**
+
+**Circular tour**
+
+**First non-repeating character in a stream**
+
+**Rotten Oranges**
+
+**Maximum of all subarrays of size k**
