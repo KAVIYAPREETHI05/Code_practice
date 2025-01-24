@@ -44,8 +44,35 @@ Each node contains two parts
 - `size()`Returns the number of elements in the list.
 - `contains(value)`Checks if value exists in the list.
 
+**add elements in linked list**
 
-**1.traverse a linked list**
+```java
+import java.util.Scanner;
+import java.util.LinkedList;
+
+
+public class Main{
+    public static void main(String[] args){
+        LinkedList list=new LinkedList();
+        Scanner scan=new Scanner(System.in);
+        
+        int totalNode=scan.nextInt();
+        
+        for(int i=0;i<totalNode;i++){
+            int value=scan.nextInt();
+            list.add(value);
+        }
+        
+        for(int i=0;i<totalNode;i++){
+            System.out.println(list.get(i));
+        }
+        
+    }
+}
+```
+
+
+**traverse a linked list**
 
 ```java
 /* Node is defined as
@@ -70,7 +97,7 @@ class Solution {
 }
 ```
 
-**2.search in linked list**
+**search in linked list**
 
 ```java
 class Solution {
@@ -88,7 +115,7 @@ class Solution {
 }
 ```
 
-**3.insert element at end**
+**insert element at end**
 
 ```java
 class Solution {
@@ -108,7 +135,7 @@ class Solution {
 }
 ```
 
-**4.delete first element in ll**
+**delete first element in ll**
 
 **5.delete last element in ll**
 
@@ -260,7 +287,11 @@ class Solution {
     }
 }
 ```
-**Finding middle element in a Linked list $**
+
+---
+---
+
+**Finding middle element in a Linked list**
 
 ```java
 class Solution {
@@ -382,6 +413,93 @@ temp=head;
 **Implement Stack using Linked List**
 **Given a Linked list of 0s, 1s and 2s, sort it**
 **Delete without head pointer**
+
+
+## DOUBLYLINKED LIST
+
+**traversing doubly linked list**
+
+```java
+
+class Node{
+    int data;
+    Node prev;
+    Node next;
+    
+    public Node(int value){
+        this.data=value;
+        this.next=null;
+        this.prev=null;
+    }
+}
+
+class DoublyLinkedList{
+Node head=null;
+Node tail=null;
+    public void addToFront(int data){
+        Node newNode=new Node(data);
+        if(head==null){
+            head=tail=newNode;
+        }
+        else{
+            head.prev=newNode;
+            newNode.next=head;
+            head=newNode;
+            
+        }
+    }
+    
+    public void addToLast(int data){
+        Node newNode=new Node(data);
+        if(head==null){
+            head=tail=newNode;
+        }
+        else{
+            tail.next=newNode;
+            newNode.prev=tail;
+            tail=newNode;
+            
+        }
+    }
+    
+    public void displayForward(){
+        Node current=head;
+        while(current!=null){
+            System.out.print(current.data+" ");
+            current=current.next;
+        }
+        System.out.println();
+    }
+    public void displayBackward(){
+        Node current=tail;
+        while(current!=null){
+            System.out.print(current.data+" ");
+            current=current.prev;
+        }
+    }
+    
+}
+
+public class Main{
+    public static void main(String[] args){
+        
+        DoublyLinkedList dll=new DoublyLinkedList();
+        
+        dll.addToFront(3);
+        dll.addToFront(2);
+        dll.addToFront(1);
+        dll.addToLast(4);
+        dll.addToLast(5);
+        dll.addToLast(6);        
+        
+        dll.displayForward();
+        dll.displayBackward();        
+               
+    }
+}
+```
+
+
 
 
 
