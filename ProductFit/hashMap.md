@@ -70,3 +70,19 @@ class Solution {
     }
 }
 ```
+
+---
+---
+
+**First element to occur k times**
+**Find the element that appears once in sorted array**
+**Number of pairs**
+**Find all pairs with a given sum**
+**Common elements**
+**Find all four sum numbers**
+**Count distinct elements in every window**
+**Array Pair Sum Divisibility Problem**
+**Longest consecutive subsequence**
+**Array Subset of another array**
+**Zero Sum Subarrays**
+**Relative Sorting**
