@@ -236,6 +236,37 @@ class Solution {
 **merge k two sorted list**
 **find intersection**
 **detect cycle**
+```java
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+       
+        ListNode temp=head;
+        Stack<ListNode> s=new Stack<>();
+
+        while(temp!=null){
+            if(s.contains(temp)){
+                return true;
+            }            
+            s.add(temp);
+           temp=temp.next;
+            
+           
+        }
+         return false;
+    }
+}
+```
 **add two num**
 **remove kth from end**
 **rearrange nodes**
