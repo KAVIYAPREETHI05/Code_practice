@@ -136,8 +136,60 @@ class Solution {
 ```
 
 **delete first element in ll**
+```java
+import java.util.Scanner;
 
-**5.delete last element in ll**
+class Node{
+    int data;
+    Node next;
+    public  Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+
+
+public class Main
+{
+    public static void deleteNode(Node head){
+        head=head.next;
+        Node temp=head;
+        
+        
+        while(temp!=null){
+            System.out.println(temp.data);
+            temp=temp.next;
+        }
+    }
+    
+	public static void main(String[] args) {
+	    Scanner scan=new Scanner(System.in);
+	    int size=scan.nextInt();
+	    
+	    Node head=null;
+	    Node tail=null;
+	    
+	    for(int i=0;i<size;i++){
+	        int value=scan.nextInt();
+	        Node newNode=new Node(value);
+	        
+	        if(head==null){
+	            head=newNode;
+	            tail=newNode;
+	        }
+	        else{
+	            tail.next=newNode;
+	            tail=newNode;
+	            
+	        }
+	    }
+	    
+	    deleteNode(head);
+	}
+}
+```
+
+**delete last element in ll**
 
 ```java
 class Solution {
@@ -157,7 +209,7 @@ class Solution {
     }
 }
 ```
-**6.Reverse Linked List**
+**Reverse Linked List**
 
 leetcode-206
 
@@ -232,9 +284,6 @@ class Solution {
 
 }
 ```
-
-**merge k two sorted list**
-**find intersection**
 **detect cycle**
 ```java
 /**
@@ -267,6 +316,9 @@ public class Solution {
     }
 }
 ```
+**merge k two sorted list**
+**find intersection**
+```java
 **add two num**
 **remove kth from end**
 **rearrange nodes**
