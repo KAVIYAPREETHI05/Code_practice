@@ -484,7 +484,87 @@ temp=head;
 ```
 **Reverse a Linked List in groups of given size**
 **Intersection point in Y shaped Linked lists**
+
+leetcode-160
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public int getLength(ListNode head){
+        int count=0;
+        while(head!=null){
+            count++;
+            head=head.next;
+        }
+        return count;
+    }
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        int l1=getLength(headA);
+        int l2=getLength(headB);
+
+        while(l1>l2){
+            headA=headA.next;
+            l1--;
+        }
+        while(l2>l1){
+            headB=headB.next;
+            l2--;
+        }
+
+        while(headA!=headB){
+            headA=headA.next;
+            headB=headB.next;
+        }
+        if(headA==headB && headA!=null && headB!=null){
+            return headA;
+        }
+        else{
+            return null;
+        }
+        
+        
+    }
+}
+```
 **Detect Loop in Linked list**
+
+leetcode-141
+
+```java
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode temp=head;
+        if(temp==null ){
+            return false;
+        }
+
+        Stack<ListNode> s=new Stack<>();
+
+        
+
+        while(temp!=null){
+            if(s.contains(temp)){
+                return true;
+            }
+            else{
+                s.add(temp);
+            }
+            temp=temp.next;
+        }        
+        return false;
+    }
+}
+```
 **Remove loop in Linked List**
 **n’th node from end of Linked list**
 **Flattening a Linked List**
