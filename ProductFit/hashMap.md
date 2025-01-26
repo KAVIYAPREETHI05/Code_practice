@@ -28,18 +28,19 @@ It allows you to store **key-value** pairs, where each key is unique, and it map
 ```java
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer,Integer> map=new HashMap<>();
 
-        for(int i=0;i<nums.length;i++){
+        HashMap<Integer,Integer>h=new HashMap<>();
+
+        int n=nums.length;
+
+        for(int i=0;i<n;i++){
             int complement=target-nums[i];
-            if(map.containsKey(complement)){
-                return new int[]{map.get(complement),i};
+            if(h.containsKey(complement)){
+                return new int[]{h.get(complement),i};
             }
             else{
-                map.put(nums[i],i);
+                h.put(nums[i],i);
             }
-
-
         }
 return new int[]{};
         
@@ -75,8 +76,76 @@ class Solution {
 ---
 
 **First element to occur k times**
+```java
+
+class Solution {
+
+    static int firstElement(int arr[], int k) {
+        // write code here
+        
+        HashMap<Integer,Integer>s=new HashMap<>();
+        
+        int n=arr.length;
+        for(int i=0;i<n;i++){
+            s.put(arr[i],s.getOrDefault(arr[i],0)+1);
+        }
+        for(int i=0;i<n;i++){
+            if(s.get(arr[i])==k){
+                return arr[i];
+            }
+        }
+        return -1;
+    }
+}
+```
 **Find the element that appears once in sorted array**
+leetcode-540
+
+```java
+class Solution {
+    public int singleNonDuplicate(int[] nums) {
+        HashMap<Integer,Integer> h=new HashMap<>();
+
+        int n=nums.length;
+
+        for(int i=0;i<n;i++){
+            h.put(nums[i],h.getOrDefault(nums[i],0)+1);
+        }
+
+        for(int i=0;i<n;i++){
+            if(h.get(nums[i])==1){
+                return nums[i];
+            }
+        }
+        return -1;
+        
+    }
+}
+```
 **Number of pairs**
+
+leetcode-1512
+
+```java
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        int n=nums.length;
+        HashMap<Integer,Integer>h=new HashMap<>();
+        int count=0;
+
+        for(int i=0;i<n;i++){
+            h.put(nums[i],h.getOrDefault(nums[i],0)+1);
+            if(h.get(nums[i])>1){
+                count+=h.get(nums[i])-1;
+
+            }
+            
+        }
+        return count;
+        
+    }
+}
+```
 **Find all pairs with a given sum**
 **Common elements**
 **Find all four sum numbers**
