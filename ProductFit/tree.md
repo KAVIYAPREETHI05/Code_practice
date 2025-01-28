@@ -557,6 +557,24 @@ return result;
 ```
 **Boundary view**
 
+---
+---
+
+**Height of Binary Tree**
+**Number of leaf nodes**
+**Check if given Binary Tree is Height Balanced or Not**
+**Write Code to Determine if Two Trees are Identical or Not**
+**Given a binary tree, check whether it is a mirror of itself**
+**Maximum Path Sum**
+**Print Left View of Binary Tree**
+**Print Bottom View of Binary Tree**
+**Print a Binary Tree in Vertical Order**
+**Diameter of a Binary Tree**
+**Level order traversal in spiral form**
+**Connect Nodes at Same Level**
+**Convert a given Binary Tree to Doubly Linked List**
+**Serialize and Deserialize a Binary Tree**
+
 Binary Tree	| Binary Search Tree (BST)
 ----------------|-------------------------
 No specific ordering of nodes.	|Nodes follow specific ordering rules.
@@ -749,6 +767,32 @@ class Solution {
     }
 }
 ```
+
+---
+---
+**Check for BST**
+**Lowest Common Ancestor in a BST**
+**Ceil in BST**
+**K-th Largest Element in BST**
+**Largest BST in Binary Tree**
+**Merge Two Balanced Binary Search Trees**
+**Sorted Array to Balanced BST**
+
+## AVL TREE
+
+An AVL tree is a type of self-balancing binary search tree (named after its inventors Adelson-Velsky and Landis). 
+
+``BF=Height of Left Subtree−Height of Right Subtree``
+
+The balance factor can only be ``-1, 0, or 1``. 
+
+### Rotations in AVL tree
+
+-  Left Rotation (LL Case)
+-  Right Rotation (RR Case)
+-  Left-Right Rotation (LR Case)
+-  Right-Left Rotation (RL Case)
+
 
 
 
