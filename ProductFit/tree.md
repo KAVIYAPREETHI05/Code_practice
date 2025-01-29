@@ -395,14 +395,112 @@ class Solution {
 }
 ```
 
-
-
-**Level of a Node in Binary Tree**
 **Same Tree**
+
+leetcode-100
+
+```java
+class Solution {
+    public boolean dfs(TreeNode p,TreeNode q){
+        if(p==null && q==null){
+            return true;
+        }
+        else if(p==null && q!=null){
+            return false;
+        }
+        else if(p!=null && q==null){
+            return false;
+        }
+        
+        if(p.val!=q.val){
+            return false;
+        }
+        return dfs(p.left,q.left) && dfs(p.right,q.right);
+        
+    }
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(q==null && p==null){
+            return true;
+        }
+        return dfs(p,q);
+        
+    }
+}
+```
 **mirror Tree**
+
+```java
+class Solution {
+    // Function to convert a binary tree into its mirror tree.
+    void mirror(Node node) {
+        if(node==null){
+            return;
+        }
+        Node temp=node.left;
+        node.left=node.right;
+        node.right=temp;
+        
+        mirror(node.left);
+        mirror(node.right);
+        
+    }
+}
+```
 **invert Tree**
 
+leetcode-226
+
+```java
+class Solution {
+
+    public TreeNode invertTree(TreeNode root) {
+        if(root==null){
+            return root;
+        }
+        TreeNode temp=root.left;
+        root.left=root.right;
+        root.right=temp;
+
+       invertTree(root.left);
+       invertTree(root.right);
+
+
+      return root;  
+        
+    }
+}
+```
+
 **Symmetric Tree**
+
+leetcode-101
+
+```java
+class Solution {
+    public boolean areMirror(TreeNode p,TreeNode q){
+        if(p==null && q==null){
+            return true;
+        }
+        else if(p==null || q==null){
+            return false;
+        }
+        else if(p.val!=q.val){
+            return false;
+        }
+       
+       return areMirror(p.left,q.right) && areMirror(p.right,q.left);
+    }
+    public boolean isSymmetric(TreeNode root) {
+        if(root==null){
+            return true;
+        }
+              
+        return areMirror(root.left,root.right);
+        
+        
+    }
+}
+```
 **leaf nodes**
 **nn-leaf nodes**
 
@@ -556,6 +654,7 @@ return result;
 }
 ```
 **Boundary view**
+**Level of a Node in Binary Tree**
 
 ---
 ---
@@ -566,7 +665,7 @@ return result;
 **Write Code to Determine if Two Trees are Identical or Not**
 **Given a binary tree, check whether it is a mirror of itself**
 **Maximum Path Sum**
-**Print Left View of Binary Tree**
+**Print Left View of Binary Tree**f
 **Print Bottom View of Binary Tree**
 **Print a Binary Tree in Vertical Order**
 **Diameter of a Binary Tree**
