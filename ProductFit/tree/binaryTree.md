@@ -196,6 +196,37 @@ class Solution {
     }
 }
 ```
+**sum of all  nodes**
+
+```java
+class Solution {
+    // Function to return sum of all nodes of a binary tree
+    
+    static int sumBT(Node root) {
+        if(root==null){
+            return 0;
+        }
+         
+        return root.data + sumBT(root.left)+ sumBT(root.right);
+        
+        
+        
+    }
+}
+```
+**106. Maximum depth of tree**
+```java
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if(root==null){
+            return 0;
+        }
+
+        return 1+ Math.max(maxDepth(root.left),maxDepth(root.right));
+        
+    }
+}
+```
 **leaf nodes**
 **nn-leaf nodes**
 
