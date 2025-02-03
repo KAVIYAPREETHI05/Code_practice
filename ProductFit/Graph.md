@@ -227,6 +227,20 @@ return true;
 }
 ```
 
+## Disjoint set algorithm
+
+The Disjoint Set algorithm, also known as Union-Find, is a data structure used to efficiently manage and merge disjoint sets. It supports two main operations:
+
+Find (x): Determines which set the element x belongs to.
+Union (x, y): Merges the sets that contain x and y.
+
+**Application**
+
+
+- Kruskal's Minimum Spanning Tree Algorithm
+- Cycle detection in graphs
+- Connected components in graphs
+- Network connectivity problems
 
 
 
