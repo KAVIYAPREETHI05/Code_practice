@@ -139,38 +139,100 @@ MySQL doesn’t have true global temporary tables.
 
 - **ALTER**
 
+    - **ADD**
+ ```sql
+ALTER TABLE exam
+ADD grade_no INT
+```
 
+```sql
+ALTER TABLE exam
+ADD (skill VARCHAR(50), language VARCHAR(50));
+```
 
+![image](https://github.com/user-attachments/assets/419c4ac4-914d-441c-a047-69be60e4bc0b)
 
+   - **MODIFY**
+```sql
+ALTER TABLE exam
+MODIFY marks VARCHAR(50);
+```
 
+```sql
+DESCRIBE exam;
+```
 
+```sql
+SHOW COLUMNS FROM exam;
+```
 
+![image](https://github.com/user-attachments/assets/04806cdc-fb6d-45da-8c58-d8d6fb4e2b92)
 
+  - **RENAME**
 
+```sql
+ALTER TABLE exam
+RENAME COLUMN marks TO marks_obtained;
+```
 
+![image](https://github.com/user-attachments/assets/9fecf4fe-0171-474f-9e1b-28ff617ff790)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# SELECT
 
 ### SELECT
+
+Shows all data  of table
 
 ```sql
  SELECT *FROM  practice;
 ```
 ![image](https://github.com/user-attachments/assets/f6d64dbb-427c-4cd3-b96d-047ff80bcd0b)
+
+
+shows data of dept,exam_data column
+```sql
+SELECT dept,exam_date FROM exam;
+```
+
+![image](https://github.com/user-attachments/assets/5aaed1a0-dd3f-496d-a869-59519dc7eb94)
+
+shows all data of table if dept is ise
+
+```sql
+SELECT *FROM exam
+WHERE dept='ise';
+```
+
+![image](https://github.com/user-attachments/assets/08a6fbf0-1dc5-43f5-8d37-166e94b4f52f)
+
+
+group rows in a table that have same values in specified column
+
+```sql
+SELECT result,dept FROM exam
+GROUP BY result,dept;
+```
+![image](https://github.com/user-attachments/assets/760ea679-2d4e-4caa-b737-4ea1677fdb53)
+
+count number of students based on result status
+```sql
+SELECT COUNT(marks_obtained),result FROM exam
+GROUP BY result;
+```
+
+![image](https://github.com/user-attachments/assets/bf048e1f-e8dc-41ad-b552-32abcec8d399)
+
+after grouping it shows count of marks_obtained  where result is 0
+```sql
+SELECT COUNT(marks_obtained),result FROM exam
+GROUP BY result
+HAVING result=0;
+```
+![image](https://github.com/user-attachments/assets/4f29f490-3dfb-4321-b5ad-012f256edc78)
+
+
+
+
 
 ### INSERT
 
