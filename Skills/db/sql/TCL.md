@@ -126,6 +126,60 @@ ROLLBACK TO bob;
 
 SELECT *FROM Bank; //1000 2000 5000
 
+```
+
+**Insert a new user 'Charlie' with 4000 balance. Set a savepoint after that. Update Alice’s balance to 6000. Rollback to the savepoint. Commit the final transaction.**
+
+```sql
+START TRANSACTION;
+
+UPDATE Bank
+SET balance=4000
+WHERE account_id=103;   //1000 2000 4000
+SAVEPOINT s1;
+
+UPDATE Bank
+SET balance=6000
+WHERE account_id=101;
+
+SELECT *FROM Bank; // 6000 2000 4000
+
+ROLLBACK TO s1;
+
+SELECT *FROM Bank;  //1000 2000 4000
+
+COMMIT;
+```
+
+**Set savepoint sp1. Deduct 500 from Bob. Set another savepoint sp2. Deduct 500 from Charlie. Rollback to sp2 and then rollback to sp1**
+
+
+```sql
+
+INSERT INTO Bank VALUES(101,'Alice',1000),(102,'Bob',1000),(103,'Charles',1000);
+
+START TRANSACTION;
+SAVEPOINT s1;
+
+UPDATE Bank
+SET balance=balance-500
+WHERE account_id=102;  //1000 500 1000
+SAVEPOINT s2;
+
+UPDATE Bank
+SET balance=balance-500
+WHERE account_id=103;  //1000 500 500
+
+SELECT *FROM Bank;  //1000 500 500
+
+ROLLBACK TO s2;
+
+SELECT *FROM Bank;  //1000 500 1000
+
+ROLLBACK to s1;
+SELECT *FROM Bank; //1000 1000 1000
 
 ```
+
+
 
