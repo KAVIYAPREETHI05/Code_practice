@@ -13,6 +13,42 @@ ON Empolyees.DeptID=Departments.DeptID;
 ```
 ![image](https://github.com/user-attachments/assets/20bdc0d2-8e95-4733-aed0-87c8210eb587)
 
+## LEFT JOIN
+
+```sql
+SELECT EmpName,DeptName FROM Empolyees
+LEFT JOIN Departments
+ON Empolyees.DeptID=Departments.DeptID;
+```
+![image](https://github.com/user-attachments/assets/486573b7-488e-43d8-8dfc-7501b9622f1a)
+
+
+ ## RIGHT JOIN
+
+ ```sql
+SELECT EmpName,DeptName FROM Empolyees
+RIGHT JOIN Departments
+ON Empolyees.DeptID=Departments.DeptID;
+```
+![image](https://github.com/user-attachments/assets/36a85276-abb2-4308-83ff-87207e20d06a)
+
+## FULL JOIN
+
+```SQL
+
+SELECT EmpID,EmpName,DeptName
+FROM empolyees
+LEFT JOIN departments
+ON empolyees.DeptID=departments.DeptID
+UNION
+SELECT EmpID,EmpName,DeptName
+FROM empolyees
+RIGHT JOIN departments
+ON empolyees.DeptID=departments.DeptID;
+```
+
+![image](https://github.com/user-attachments/assets/13dc5a19-0be4-49e0-902f-dedf272c137b)
+
 ###  Find all employees who work in the 'IT' department.
 
 ```sql
