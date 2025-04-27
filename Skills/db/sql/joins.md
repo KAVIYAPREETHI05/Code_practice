@@ -143,29 +143,36 @@ LEFT JOIN MARKS M ON S.STUDENT_ID=M.STUDENT_ID
 LEFT JOIN ATTEND A ON S.STUDENT_ID=A.STUDENT_ID;
 ```
 
-```
-Here are some unique and diverse SQL query practice questions for you:
+### Write a query to find the names of employees who have made at least one order.
 
-1. Retrieve the names of employees who have worked more than 100 hours in total in a given month.
-2. Find the top 3 highest paid employees in each department.
-3. List all products that are not sold in any order.
-4. Display the average salary of employees who have been with the company for more than 5 years.
-5. Find customers who have purchased all products in a particular category.
-6. Retrieve the names of students who have completed more than 3 courses but haven't attended any exams.
-7. Get the employees who have not been assigned to any projects.
-8. Find the product(s) with the highest quantity sold in a given year.
-9. Display the total number of orders placed by each customer in the past month.
-10. Get all employees who have joined the company in the last 6 months and have not received a promotion.
-11. Retrieve the list of books that have been checked out more than 5 times.
-12. Find the difference in the number of orders between two given months for each product.
-13. Get the employees who have worked on exactly one project.
-14. List the employees who have reported more than 2 absences this year but have a salary greater than $50,000.
-15. Find customers who have purchased products from every available category.
-16. Retrieve the names of suppliers who have supplied products that have never been sold.
-17. Get the average order value for each customer in the last 6 months.
-18. List the employees who have completed training but have not yet been assigned a task.
-19. Retrieve the names of all customers who have purchased a product that is currently out of stock.
-20. Find the employees who have worked on projects that are still active but have not received any feedback.
+```sql
+SELECT E.NAME FROM EMPLOYEES E
+JOIN ORDERS O ON E.EMPLOYEE_ID=O.EMPLOYEE_ID;
+```
+
+
+### Write a query to find the names of employees who have made no one order.
+```sql
+SELECT E.NAME FROM EMPLOYEES E
+LEFT JOIN ORDERS O ON E.EMPLOYEE_ID=O.EMPLOYEE_ID
+WHERE O.EMPLOYEE_ID IS NULL;
+```
+### Write a query to find the total sales (Order_Value) handled by each employee. Display the Employee_ID, Name, and the total sales value, ordered by total sales in descending order.
+
+```sql
+SELECT E.EMPLOYEE_ID,E.NAME,SUM(O.ORDER_VALUE) AS TOTAL_SALE FROM EMPLOYEES E
+LEFT JOIN ORDERS O ON E.EMPLOYEE_ID= O.EMPLOYEE_ID
+GROUP BY E.EMPLOYEE_ID,E.NAME
+ORDER BY TOTAL_SALE DESC;
+```
+
+### Query to display the total sales (Order_Value) for each employee's department.
+```
+sql
+SELECT E.Employee_ID, E.Name, E.Department, SUM(O.Order_Value) AS Total_Sales
+FROM Employees E
+LEFT JOIN Orders O ON E.Employee_ID = O.Employee_ID
+GROUP BY E.Employee_ID, E.Name, E.Department;
 
 ```
 
