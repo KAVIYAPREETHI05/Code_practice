@@ -175,4 +175,44 @@ LEFT JOIN Orders O ON E.Employee_ID = O.Employee_ID
 GROUP BY E.Employee_ID, E.Name, E.Department;
 
 ```
+## Leetcode
+
+### Write a solution to report all the duplicate emails. Note that it's guaranteed that the email field is not NULL.
+
+```sql
+SELECT Email FROM PERSON
+GROUP BY EMAIL
+HAVING COUNT(EMAIL)>1
+```
+
+![image](https://github.com/user-attachments/assets/c86508a1-dc98-4fad-b9ba-549de4a7355f)
+
+```sql
+SELECT E.NAME AS Employee FROM EMPLOYEE E
+JOIN EMPLOYEE M ON E.MANAGERID=M.ID
+WHERE E.SALARY >M.SALARY;
+```
+
+### Write a solution to report the first name, last name, city, and state of each person in the Person table. If the address of a personId is not present in the Address table, report null instead.
+
+```sql
+SELECT P.FIRSTNAME,P.LASTNAME,A.CITY,A.STATE FROM PERSON P
+LEFT JOIN ADDRESS A ON P.PERSONID=A.PERSONID;
+```
+
+### Write a solution to find the second highest distinct salary from the Employee table. If there is no second highest salary, return null 
+```SQL
+SELECT (SELECT DISTINCT SALARY  FROM EMPLOYEE
+ORDER BY SALARY DESC
+LIMIT 1 OFFSET 1) AS SECONDHIGHESTSALARY;
+```
+
+### over()
+The OVER() clause is used with window functions in SQL to define a window of rows that the function operates on. It allows you to perform calculations across a set of table rows that are somehow related to the current row.
+OVER() works with various window functions like ROW_NUMBER(), RANK(), DENSE_RANK(), and SUM(). 
+
+```sql
+SELECT SCORE, DENSE_RANK() OVER(ORDER BY SCORE DESC)  AS 'rank' FROM SCORES;
+
+```
 
