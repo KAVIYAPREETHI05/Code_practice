@@ -216,3 +216,34 @@ SELECT SCORE, DENSE_RANK() OVER(ORDER BY SCORE DESC)  AS 'rank' FROM SCORES;
 
 ```
 
+### IE
+Takes employee salary and joining date (in DD-MM-YYYY format),
+
+Checks which day of the week it is,
+
+Adds extra salary based on the weekday:
+
+Monday → +100
+
+Wednesday → +200
+
+Sunday → +120
+
+Other days → +80
+```SQL
+SELECT 
+    employee_id,
+    employee_name,
+    salary,
+    entry_date,
+    CASE 
+        WHEN TO_CHAR(TO_DATE(entry_date, 'DD-MM-YYYY'), 'DAY') LIKE 'MON%' THEN salary + 100
+        WHEN TO_CHAR(TO_DATE(entry_date, 'DD-MM-YYYY'), 'DAY') LIKE 'WED%' THEN salary + 200
+        WHEN TO_CHAR(TO_DATE(entry_date, 'DD-MM-YYYY'), 'DAY') LIKE 'SUN%' THEN salary + 120
+        ELSE salary + 80
+    END AS updated_salary
+FROM 
+    employee_table;
+```
+
+
