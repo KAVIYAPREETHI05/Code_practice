@@ -127,5 +127,40 @@ ORDER BY p.score DESC
 LIMIT 3;
 ```
 
+### Write a solution to find all customers who never order anything.
+
+```sql
+SELECT NAME AS Customers FROM CUSTOMERS
+WHERE ID NOT IN(SELECT CUSTOMERID FROM ORDERS);
+```
+
+USING JOINS
+
+```SQL
+SELECT C.NAME AS Customers  FROM CUSTOMERS C
+LEFT JOIN ORDERS O ON C.ID=O.CUSTOMERID
+WHERE O.CUSTOMERID IS NULL;
+```
+
+![image](https://github.com/user-attachments/assets/46b21282-7acc-42d1-9287-c29d9027d86d)
+
+
+```SQL
+SELECT D.NAME AS Department, E.NAME AS Employee, E.SALARY AS Salary FROM EMPLOYEE E
+JOIN DEPARTMENT D ON E.DEPARTMENTID=D.ID
+WHERE (E.DEPARTMENTID, E.SALARY) IN 
+(SELECT DEPARTMENTID,MAX(SALARY) FROM EMPLOYEE
+GROUP BY DEPARTMENTID);
+
+```
+
+### Write a solution to delete all duplicate emails, keeping only one unique email with the smallest id.
+
+```SQL
+DELETE p1 FROM PERSON p1
+JOIN PERSON p2 ON P1.EMAIL=P2.EMAIL AND P1.ID>P2.ID;
+```
+
+
 
 
