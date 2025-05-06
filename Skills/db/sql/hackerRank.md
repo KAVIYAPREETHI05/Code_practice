@@ -161,6 +161,30 @@ DELETE p1 FROM PERSON p1
 JOIN PERSON p2 ON P1.EMAIL=P2.EMAIL AND P1.ID>P2.ID;
 ```
 
+### Write a solution to find all dates' id with higher temperatures compared to its previous dates (yesterday).
+
+```sql
+SELECT W1.ID FROM WEATHER W1
+JOIN WEATHER W2 ON DATEDIFF(W1.RECORDDATE,W2.RECORDDATE)=1 AND W1.TEMPERATURE>W2.TEMPERATURE ;
+```
+
+### Write a solution to find the first login date for each player.
+
+```SQL
+SELECT PLAYER_ID  AS player_id,MIN(EVENT_DATE) AS first_login  FROM ACTIVITY 
+GROUP BY PLAYER_ID;
+```
+
+### Write a solution to find managers with at least five direct reports.
+
+```sql
+SELECT E1.NAME FROM EMPLOYEE E1
+JOIN EMPLOYEE E2 ON E1.ID=E2.MANAGERID
+GROUP BY E2.MANAGERID
+HAVING COUNT(E2.MANAGERID)>=5;
+```
+
+
 
 
 
