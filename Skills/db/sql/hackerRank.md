@@ -184,6 +184,15 @@ GROUP BY E2.MANAGERID
 HAVING COUNT(E2.MANAGERID)>=5;
 ```
 
+### Write a solution to report the name and bonus amount of each employee with a bonus less than 1000.
+
+```SQL
+SELECT E.NAME AS name,B.BONUS FROM EMPLOYEE E
+LEFT JOIN BONUS B ON E.EMPID=B.EMPID
+WHERE B.BONUS<1000 OR B.BONUS IS NULL;
+```
+
+
 
 
 
