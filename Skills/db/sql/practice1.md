@@ -275,6 +275,23 @@ SELECT DISTINCT Country FROM Customers GROUP BY Country;
 
 ```
 
+###  Write a SQL query to fetch "FIRST_NAME" from the Student table in upper case and use ALIAS name as STUDENT_NAME.
+```sql
+SELECT upper(FIRST_NAME) FROM STUDENT AS STUDENT_NAME;
+```
+
+### Write a SQL query to fetch unique values of MAJOR Subjects from Student table.
+```SQL
+SELECT DISTINCT MAJOR FROM STUDENT;
+```
+
+### Write a SQL query to print the first 3 characters of FIRST_NAME from Student table.
+
+```SQL
+SELECT SUBSTRING(FIRST_NAME,1,3) FROM STUDENT;
+```
+
+###  Write a SQL query to find the position of alphabet ('a') int the first name column 'Shivansh' from Student table.
 
 
 
