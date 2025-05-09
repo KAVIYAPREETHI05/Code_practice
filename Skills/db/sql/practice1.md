@@ -293,7 +293,42 @@ SELECT SUBSTRING(FIRST_NAME,1,3) FROM STUDENT;
 
 ###  Write a SQL query to find the position of alphabet ('a') int the first name column 'Shivansh' from Student table.
 
+```sql
+SELECT INSTR(FIRST_NAME, 'a') FROM Student WHERE FIRST_NAME = 'Shivansh';
 
+```
+
+### to find all occurence of 
+
+```sql
+SELECT LENGTH(FIRST_NAME) - LENGTH(REPLACE(FIRST_NAME, 'R', '')) AS R_COUNT
+FROM STUDENT
+WHERE FIRST_NAME = 'Radha';
+
+```
+### Write a SQL query to print the FIRST_NAME and LAST_NAME from Student table into single column COMPLETE_NAME.
+
+```sql
+SELECT CONCAT(FIRST_NAME,LAST_NAME) FROM STUDENT  AS COMPLETE_NAME;
+```
+### Write a SQL query to print all Student details from Student table order by FIRST_NAME Ascending and MAJOR Subject descending .
+
+```sql
+SELECT *FROM STUDENT
+ORDER BY FIRST_NAME ASC, MAJOR DESC;
+```
+
+###  Write a SQL query to print details of the Students with the FIRST_NAME as 'Prem' and 'Shivansh' from Student table.
+
+```sql
+SELECT * from Student WHERE FIRST_NAME IN ('Prem' , 'Shivansh');
+```
+
+### Write an SQL query to print details of the Students whose FIRST_NAME ends with ‘a’ and contains five alphabets.
+
+```sql
+SELECT * FROM Student WHERE FIRST_NAME LIKE '_____a';
+```
 
 
 
