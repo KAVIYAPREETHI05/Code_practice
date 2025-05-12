@@ -306,6 +306,17 @@ FROM STUDENT
 WHERE FIRST_NAME = 'Radha';
 
 ```
+or
+
+```sql
+SELECT 
+CASE 
+	WHEN INSTR(FIRST_NAME,'a')=0 THEN 0
+    ELSE LENGTH(FIRST_NAME)- INSTR(REVERSE(FIRST_NAME),'a')+1
+END AS last_occurrence
+FROM Student;
+```
+
 ### Write a SQL query to print the FIRST_NAME and LAST_NAME from Student table into single column COMPLETE_NAME.
 
 ```sql
@@ -329,6 +340,7 @@ SELECT * from Student WHERE FIRST_NAME IN ('Prem' , 'Shivansh');
 ```sql
 SELECT * FROM Student WHERE FIRST_NAME LIKE '_____a';
 ```
+
 
 
 
