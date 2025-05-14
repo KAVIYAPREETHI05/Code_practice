@@ -335,12 +335,108 @@ ORDER BY FIRST_NAME ASC, MAJOR DESC;
 SELECT * from Student WHERE FIRST_NAME IN ('Prem' , 'Shivansh');
 ```
 
+###  Write a SQL query to print details of the Students with the FIRST_NAME not as 'Prem' and 'Shivansh' from Student table.
+
+```sql
+SELECT * from Student WHERE FIRST_NAME NOT IN ('Prem' , 'Shivansh');
+```
+
 ### Write an SQL query to print details of the Students whose FIRST_NAME ends with ‘a’ and contains five alphabets.
 
 ```sql
 SELECT * FROM Student WHERE FIRST_NAME LIKE '_____a';
 ```
+###  Write an SQL query to print details of the Students whose GPA lies between 9.00 and 9.99.
 
+```SQL
+SELECT *FROM STUDENT
+WHERE GPA BETWEEN 9.00 AND 9.99;
+```
+
+###  Write a SQL query to print FIRST_NAME from the Student table after replacing 'a' with 'A'.
+
+```SQL
+SELECT REPLACE(FIRST_NAME,'a','Z') FROM STUDENT;
+```
+
+### Write an SQL query to fetch the count of Students having Major Subject ‘Computer Science’.
+
+```sql
+SELECT COUNT(MAJOR) FROM student
+WHERE MAJOR='Computer Science'
+```
+
+### Write an SQL query to fetch Students full names with GPA >= 8.5 and <= 9.5.
+
+```SQL
+SELECT CONCAT(FIRST_NAME,LAST_NAME) AS FULL_NAME FROM STUDENT
+WHERE GPA >=8.5 AND GPA<=9.5;
+```
+
+###  Write an SQL query to fetch the no. of Students for each MAJOR subject in the descending order.
+```SQL
+SELECT MAJOR,COUNT(MAJOR) FROM STUDENT
+GROUP BY MAJOR
+ORDER BY COUNT(MAJOR) DESC;
+```
+
+### Write an SQL query to show only odd rows from Student table.
+```sql
+SELECT * FROM Student WHERE student_id % 2 != 0;
+```
+
+```sql
+SELECT *FROM (
+SELECT * ,ROW_NUMBER() OVER() AS row_num FROM STUDENT
+)AS numbered
+WHERE row_num%2!=0;
+```
+
+### Write an SQL query to show the top n (say 5) records of Student table order by descending GPA.
+```SQL
+SELECT *FROM STUDENT
+ORDER BY GPA DESC
+LIMIT 4,1;   --  //LIMIT 1 OFFSET 4;
+```
+
+### Write an SQL query to determine the 5th highest GPA without using LIMIT keyword.
+```sql
+SELECT *FROM (
+SELECT GPA,ROW_NUMBER() OVER(ORDER BY GPA DESC) AS ROW_NUM FROM STUDENT
+)AS NUMBERED 
+WHERE ROW_NUM=5;
+```
+
+### Write an SQL query to fetch the list of Students with the same GPA.
+
+```sql
+SELECT GPA,COUNT(*) AS GPA_COUNT FROM STUDENT
+GROUP BY GPA
+HAVING COUNT(*) >1;
+```
+
+### Write an SQL query to show the second highest GPA from a Student table using sub-query.
+```SQL
+SELECT MAX(GPA) AS second_max FROM student 
+WHERE GPA!=(
+SELECT MAX(GPA) AS first_max FROM STUDENT 
+);
+```
+
+### Write an SQL query to show one row twice in results from a table.
+
+```SQL
+SELECT *FROM student
+UNION ALL
+SELECT *FROM STUDENT ORDER BY STUDENT_ID;
+```
+
+### Write an SQL query to fetch the MAJOR subject that have less than 4 people in it.
+```sql
+SELECT MAJOR,COUNT(*) FROM STUDENT
+GROUP BY MAJOR
+HAVING COUNT(*)<4;
+```
 
 
 
