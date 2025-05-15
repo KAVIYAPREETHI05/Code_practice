@@ -408,11 +408,14 @@ WHERE ROW_NUM=5;
 ```
 
 ### Write an SQL query to fetch the list of Students with the same GPA.
-
-```sql
-SELECT GPA,COUNT(*) AS GPA_COUNT FROM STUDENT
-GROUP BY GPA
-HAVING COUNT(*) >1;
+```SQL
+SELECT *FROM student
+WHERE GPA IN(
+SELECT GPA
+    FROM student
+    GROUP BY GPA
+    HAVING COUNT(*) > 1
+    );
 ```
 
 ### Write an SQL query to show the second highest GPA from a Student table using sub-query.
@@ -431,12 +434,119 @@ UNION ALL
 SELECT *FROM STUDENT ORDER BY STUDENT_ID;
 ```
 
+### Write an SQL query to list STUDENT_ID who does not get Scholarship.
+```SQL
+SELECT *FROM student S
+LEFT JOIN SCHOLARSHIP SH ON S.STUDENT_ID=SH.STUDENT_REF_ID
+WHERE SH.STUDENT_REF_ID IS NULL;
+```
+
+or
+
+```sql
+SELECT *FROM student
+WHERE STUDENT_ID NOT IN ( SELECT STUDENT_REF_ID FROM SCHOLARSHIP);
+```
+
 ### Write an SQL query to fetch the MAJOR subject that have less than 4 people in it.
 ```sql
 SELECT MAJOR,COUNT(*) FROM STUDENT
 GROUP BY MAJOR
 HAVING COUNT(*)<4;
 ```
+
+### Write an SQL query to show the last record from a table.
+```sql
+SELECT *FROM student
+ORDER BY STUDENT_ID DESC
+LIMIT 1;
+```
+
+### Write an SQL query to show the first record from a table.
+```sql
+SELECT *FROM student
+ORDER BY STUDENT_ID ASC
+LIMIT 1;
+```
+### Write an SQL query to fetch the last five records from a table.
+```sql
+SELECT * FROM (
+SELECT *FROM student
+ORDER BY STUDENT_ID DESC
+LIMIT 5) AS order_list
+ORDER BY STUDENT_ID ASC;
+```
+
+### Write an SQL query to fetch three max GPA from a table
+```sql
+-- COMMON TABLE EXPRESSION(USED TO AVOID ->  This version of MySQL doesn't yet support 'LIMIT & IN/ALL/ANY/SOME subquery')
+WITH TOP_3 AS(
+SELECT DISTINCT GPA FROM student
+ORDER BY GPA ASC
+LIMIT 3
+)
+SELECT *FROM student
+WHERE GPA IN (SELECT GPA FROM TOP_3);
+```
+### Write an SQL query to fetch MAJOR subjects along with the max GPA in each of these MAJOR subjects.
+
+```SQL
+SELECT MAJOR,MAX(GPA) FROM student
+GROUP BY MAJOR;
+```
+
+###  Write an SQL query to fetch the names of Students who has highest GPA.
+
+```SQL
+SELECT FIRST_NAME,GPA FROM STUDENT
+ORDER BY GPA DESC
+LIMIT 1;
+```
+
+### CURRENT
+
+```SQL
+SELECT CURRENT_DATE(); -- 2025-05-15
+SELECT current_time(); -- 19:33:49
+SELECT current_timestamp(); -- 2025-05-15 19:33:59 
+ SELECT NOW();-- 2025-05-15 19:33:59 
+SELECT current_user(); -- root@localhost
+```
+
+### Write a query to create a new table which consists of data and structure copied from the other table (say Student) or clone the table named Student.
+```SQL
+CREATE TABLE CLONETABLE AS SELECT *FROM STUDENT;
+```
+
+###  Write an SQL query to update the GPA of all the students in 'Computer Science' MAJOR subject to 7.5.
+
+```sql
+UPDATE STUDENT 
+SET GPA=7.5
+WHERE MAJOR='Computer Science';
+```
+
+### Write an SQL query to find the average GPA for each major.
+```sql
+SELECT AVG(GPA) FROM STUDENT
+GROUP BY MAJOR;
+```
+### Write an SQL query to find the number of students in each major who have a GPA greater than 7.5.
+
+```sql
+SELECT MAJOR,COUNT(STUDENT_ID) FROM STUDENT
+WHERE GPA>7.5
+GROUP BY MAJOR
+```
+
+###  Write an SQL query to find the students who have the same GPA as 'Shivansh Mahajan.
+```SQL
+SELECT *FROM student
+WHERE GPA=(
+SELECT GPA FROM STUDENT 
+WHERE STUDENT_ID=201);
+```
+
 
 
 
